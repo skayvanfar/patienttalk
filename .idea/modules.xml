@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/patienttalk.iml" filepath="$PROJECT_DIR$/patienttalk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patienttalk-common/patienttalk-common.iml" filepath="$PROJECT_DIR$/patienttalk-common/patienttalk-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patienttalk-model/patienttalk-model.iml" filepath="$PROJECT_DIR$/patienttalk-model/patienttalk-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patienttalk-persist/patienttalk-persist.iml" filepath="$PROJECT_DIR$/patienttalk-persist/patienttalk-persist.iml" />
+      <module fileurl="file://$PROJECT_DIR$/patienttalk-webapp/patienttalk-webapp.iml" filepath="$PROJECT_DIR$/patienttalk-webapp/patienttalk-webapp.iml" />
+    </modules>
+  </component>
+</project>

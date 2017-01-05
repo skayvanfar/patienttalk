@@ -1,0 +1,24 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="patienttalk-webapp:war exploded">
+    <output-path>$PROJECT_DIR$/patienttalk-webapp/target/patienttalk-webapp</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="patienttalk-webapp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="patienttalk-persist-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="patienttalk-persist" />
+          </element>
+          <element id="archive" name="patienttalk-model-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="patienttalk-model" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/patienttalk-webapp/target/patienttalk-webapp/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="patienttalk-webapp/web/Web" />
+    </root>
+  </artifact>
+</component>
