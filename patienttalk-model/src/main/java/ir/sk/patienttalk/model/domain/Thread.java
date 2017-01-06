@@ -52,11 +52,85 @@ public class Thread extends EntityBase implements Serializable {
     private long replies;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_WATCHED_USER_ID", nullable = false)
+    @JoinColumn(name = "FK_USER_ID", nullable = false)
     @NotNull
-    private User watchedUser;
+    private User user;
+
+
+
+    @OneToMany(mappedBy = "thread", cascade = {CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
+    private List<UserWatchedThread> userWatchedThreads;
+
+    public Thread() {
+    }
 
     public long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public SubForum getSubForum() {
+        return subForum;
+    }
+
+    public void setSubForum(SubForum subForum) {
+        this.subForum = subForum;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public long getViews() {
+        return views;
+    }
+
+    public void setViews(long views) {
+        this.views = views;
+    }
+
+    public long getReplies() {
+        return replies;
+    }
+
+    public void setReplies(long replies) {
+        this.replies = replies;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<UserWatchedThread> getUserWatchedThreads() {
+        return userWatchedThreads;
+    }
+
+    public void setUserWatchedThreads(List<UserWatchedThread> userWatchedThreads) {
+        this.userWatchedThreads = userWatchedThreads;
     }
 }

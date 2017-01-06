@@ -43,7 +43,42 @@ public class Emoji extends EntityBase implements Serializable {
     @Fetch(FetchMode.SELECT)
     private List<UserReceivedEmoji> userReceivedEmojis;
 
+    public Emoji() {
+    }
+
     public long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<PostHasEmoji> getPostHasEmojis() {
+        return postHasEmojis;
+    }
+
+    public void setPostHasEmojis(List<PostHasEmoji> postHasEmojis) {
+        this.postHasEmojis = postHasEmojis;
+    }
+
+    public List<UserGivenEmoji> getUserGivenEmojis() {
+        return userGivenEmojis;
+    }
+
+    public void setUserGivenEmojis(List<UserGivenEmoji> userGivenEmojis) {
+        this.userGivenEmojis = userGivenEmojis;
+    }
+
+    public List<UserReceivedEmoji> getUserReceivedEmojis() {
+        return userReceivedEmojis;
+    }
+
+    public void setUserReceivedEmojis(List<UserReceivedEmoji> userReceivedEmojis) {
+        this.userReceivedEmojis = userReceivedEmojis;
     }
 }

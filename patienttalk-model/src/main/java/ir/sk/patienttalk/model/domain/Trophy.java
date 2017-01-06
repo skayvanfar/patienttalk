@@ -30,8 +30,26 @@ public class Trophy extends EntityBase implements Serializable {
     @NotNull
     private User user;
 
+    public Trophy() {
+    }
+
     public long getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

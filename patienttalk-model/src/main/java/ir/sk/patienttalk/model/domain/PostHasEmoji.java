@@ -34,4 +34,20 @@ public class PostHasEmoji extends EntityBase implements Serializable {
     public long getId() {
         return id;
     }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public Emoji getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(Emoji emoji) {
+        this.emoji = emoji;
+    }
 }

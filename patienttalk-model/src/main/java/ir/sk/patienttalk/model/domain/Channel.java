@@ -39,7 +39,35 @@ public class Channel extends EntityBase implements Serializable {
     @NotNull
     private String themeColor;
 
+    public Channel() {
+    }
+
     public long getId() {
         return id;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Forum> getForums() {
+        return forums;
+    }
+
+    public void setForums(List<Forum> forums) {
+        this.forums = forums;
+    }
+
+    public String getThemeColor() {
+        return themeColor;
+    }
+
+    public void setThemeColor(String themeColor) {
+        this.themeColor = themeColor;
+    }
+
 }

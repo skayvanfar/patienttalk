@@ -51,14 +51,22 @@ public class User extends EntityBase implements Serializable {
     @Size(max = 100)
     private String password;
 
+    @Column(name = "GENDER_ENUM", nullable = true, insertable = true, updatable = true)
+    @Enumerated(EnumType.ORDINAL)
     private GenderEnum genderEnum;
-    private NationalityEnum nationality;
+
+    @Column(name = "NATIONALITY_ENUM", nullable = true, insertable = true, updatable = true)
+    @Enumerated(EnumType.ORDINAL)
+    private NationalityEnum nationalityEnum;
 
     @Column(name = "PHONE", nullable = true, insertable = true, updatable = true, length = 20)
     @Basic
     @Size(min = 4, max = 20)
     private String phone;
 
+    @Size(max = 50)
+    @Column(name = "LOCATION", nullable = false, insertable = true, updatable = true, length = 50, unique = true)
+    @Basic
     private String location;
 
     @Column(name = "MAIL", nullable = true, insertable = true, updatable = true, length = 100)
@@ -108,7 +116,7 @@ public class User extends EntityBase implements Serializable {
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<Forum> forums;
+    private List<Thread> threads;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
@@ -130,28 +138,24 @@ public class User extends EntityBase implements Serializable {
     @Fetch(FetchMode.SELECT)
     private List<Forum> watchedForums;
 
-    @OneToMany(mappedBy = "watchedUser", cascade = {CascadeType.MERGE,
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<Thread> watchedThreads;
+    private List<UserWatchedThread> userWatchedThreads;
 
-    public boolean hasUserRole(UserRole userRole) {
-        for(UserRole role : userRoles)
-            if(role == userRole)
-                return true;
-        return false;
+    public User() {
     }
 
     public long getId() {
         return id;
     }
 
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUsername() {
@@ -160,6 +164,14 @@ public class User extends EntityBase implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getPassword() {
@@ -173,6 +185,22 @@ public class User extends EntityBase implements Serializable {
         this.password = hashedPassword;
     }
 
+    public GenderEnum getGenderEnum() {
+        return genderEnum;
+    }
+
+    public void setGenderEnum(GenderEnum genderEnum) {
+        this.genderEnum = genderEnum;
+    }
+
+    public NationalityEnum getNationalityEnum() {
+        return nationalityEnum;
+    }
+
+    public void setNationalityEnum(NationalityEnum nationalityEnum) {
+        this.nationalityEnum = nationalityEnum;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -181,12 +209,124 @@ public class User extends EntityBase implements Serializable {
         this.phone = phone;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getMail() {
         return mail;
     }
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public boolean isOnlineStatus() {
+        return onlineStatus;
+    }
+
+    public void setOnlineStatus(boolean onlineStatus) {
+        this.onlineStatus = onlineStatus;
+    }
+
+    public String getIllnessSince() {
+        return illnessSince;
+    }
+
+    public void setIllnessSince(String illnessSince) {
+        this.illnessSince = illnessSince;
+    }
+
+    public Date getMemberDate() {
+        return memberDate;
+    }
+
+    public void setMemberDate(Date memberDate) {
+        this.memberDate = memberDate;
+    }
+
+    public Date getLastSeenDate() {
+        return lastSeenDate;
+    }
+
+    public void setLastSeenDate(Date lastSeenDate) {
+        this.lastSeenDate = lastSeenDate;
+    }
+
+    public Date getLastActivityDate() {
+        return LastActivityDate;
+    }
+
+    public void setLastActivityDate(Date lastActivityDate) {
+        LastActivityDate = lastActivityDate;
+    }
+
+    public String getCauseOfIllness() {
+        return CauseOfIllness;
+    }
+
+    public void setCauseOfIllness(String causeOfIllness) {
+        CauseOfIllness = causeOfIllness;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
+    }
+
+    public List<Thread> getThreads() {
+        return threads;
+    }
+
+    public void setThreads(List<Thread> threads) {
+        this.threads = threads;
+    }
+
+    public List<UserGivenEmoji> getUserGivenEmojis() {
+        return userGivenEmojis;
+    }
+
+    public void setUserGivenEmojis(List<UserGivenEmoji> userGivenEmojis) {
+        this.userGivenEmojis = userGivenEmojis;
+    }
+
+    public List<UserReceivedEmoji> getUserReceivedEmojis() {
+        return userReceivedEmojis;
+    }
+
+    public void setUserReceivedEmojis(List<UserReceivedEmoji> userReceivedEmojis) {
+        this.userReceivedEmojis = userReceivedEmojis;
+    }
+
+    public List<Trophy> getTrophies() {
+        return trophies;
+    }
+
+    public void setTrophies(List<Trophy> trophies) {
+        this.trophies = trophies;
+    }
+
+    public List<Forum> getWatchedForums() {
+        return watchedForums;
+    }
+
+    public void setWatchedForums(List<Forum> watchedForums) {
+        this.watchedForums = watchedForums;
+    }
+
+    public List<UserWatchedThread> getUserWatchedThreads() {
+        return userWatchedThreads;
+    }
+
+    public void setUserWatchedThreads(List<UserWatchedThread> userWatchedThreads) {
+        this.userWatchedThreads = userWatchedThreads;
     }
 
     @Override
@@ -223,6 +363,13 @@ public class User extends EntityBase implements Serializable {
         result = 31 * result + (mail != null ? mail.hashCode() : 0);
         result = 31 * result + (int) (id ^ (id >>> 32));
         return result;
+    }
+
+    public boolean hasUserRole(UserRole userRole) {
+        for(UserRole role : userRoles)
+            if(role == userRole)
+                return true;
+        return false;
     }
 
     public String getFullName() {

@@ -38,8 +38,34 @@ public class SubForum extends EntityBase implements Serializable {
     @NotNull
     private Forum forum;
 
+    public SubForum() {
+    }
+
     public long getId() {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Thread> getThreads() {
+        return threads;
+    }
+
+    public void setThreads(List<Thread> threads) {
+        this.threads = threads;
+    }
+
+    public Forum getForum() {
+        return forum;
+    }
+
+    public void setForum(Forum forum) {
+        this.forum = forum;
+    }
 }

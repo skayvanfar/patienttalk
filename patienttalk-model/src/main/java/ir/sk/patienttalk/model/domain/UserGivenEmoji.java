@@ -34,4 +34,20 @@ public class UserGivenEmoji extends EntityBase implements Serializable {
     public long getId() {
         return id;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Emoji getEmoji() {
+        return emoji;
+    }
+
+    public void setEmoji(Emoji emoji) {
+        this.emoji = emoji;
+    }
 }

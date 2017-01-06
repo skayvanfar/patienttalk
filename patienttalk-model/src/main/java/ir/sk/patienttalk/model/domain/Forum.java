@@ -39,11 +39,6 @@ public class Forum extends EntityBase implements Serializable {
     private Channel channel;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_USER_ID", nullable = false)
-    @NotNull
-    private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_WATCHED_USER_ID", nullable = false)
     @NotNull
     private User watchedUser;
@@ -55,5 +50,35 @@ public class Forum extends EntityBase implements Serializable {
         return id;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<SubForum> getSubForums() {
+        return subForums;
+    }
+
+    public void setSubForums(List<SubForum> subForums) {
+        this.subForums = subForums;
+    }
+
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
+    }
+
+    public User getWatchedUser() {
+        return watchedUser;
+    }
+
+    public void setWatchedUser(User watchedUser) {
+        this.watchedUser = watchedUser;
+    }
 }

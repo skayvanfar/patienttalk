@@ -43,7 +43,34 @@ public class Post extends EntityBase implements Serializable {
     @Fetch(FetchMode.SELECT)
     private List<PostHasEmoji> postHasEmojis;
 
+    public Post() {
+    }
+
     public long getId() {
         return id;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Thread getThread() {
+        return thread;
+    }
+
+    public void setThread(Thread thread) {
+        this.thread = thread;
+    }
+
+    public List<PostHasEmoji> getPostHasEmojis() {
+        return postHasEmojis;
+    }
+
+    public void setPostHasEmojis(List<PostHasEmoji> postHasEmojis) {
+        this.postHasEmojis = postHasEmojis;
     }
 }

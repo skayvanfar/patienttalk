@@ -28,7 +28,19 @@ public class Mood extends EntityBase implements Serializable {
 
   //  private Image image;
 
+
+    public Mood() {
+    }
+
     public long getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
