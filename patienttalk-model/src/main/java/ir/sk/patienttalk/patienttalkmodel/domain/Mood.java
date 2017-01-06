@@ -1,0 +1,34 @@
+package ir.sk.patienttalk.patienttalkmodel.domain;
+
+import ir.sk.patienttalk.patienttalkcommon.persistence.jpa.EntityBase;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.io.Serializable;
+
+
+/**
+ * @author <a href="kayvanfar.sj@gmail.com">Saeed Kayvanfar</a> on 1/5/2017.
+ */
+@Entity
+@Table(name = "TBL_PT_MOOD", schema = "", catalog = "PATIENTTALK")
+public class Mood extends EntityBase implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "PK_MOOD_ID", unique = true, nullable = false)
+    private long id;
+
+    @Size(min = 5, max = 40)
+    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Basic
+    @NotNull
+    private String name;
+
+  //  private Image image;
+
+    public long getId() {
+        return id;
+    }
+}

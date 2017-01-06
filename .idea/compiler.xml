@@ -29,11 +29,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="patienttalk" target="1.5" />
-      <module name="patienttalk-common" target="1.5" />
-      <module name="patienttalk-model" target="1.5" />
-      <module name="patienttalk-persist" target="1.5" />
-      <module name="patienttalk-webapp" target="1.5" />
+      <module name="patienttalk" target="1.8" />
+      <module name="patienttalk-common" target="1.8" />
+      <module name="patienttalk-model" target="1.8" />
+      <module name="patienttalk-persist" target="1.8" />
+      <module name="patienttalk-webapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

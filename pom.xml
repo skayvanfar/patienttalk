@@ -15,6 +15,26 @@
         <module>patienttalk-webapp</module>
     </modules>
 
+    <!-- More Project Information -->
+    <name>PatientTalk</name>
+    <description>A Talk Forum</description>
+    <url></url>
+    <inceptionYear>1365</inceptionYear>
+    <organization>
+        <name>Personal</name>
+        <url></url>
+    </organization>
+    <developers>
+        <developer>
+            <id>skayvanfar</id>
+            <name>Saeed kayvanfar</name>
+            <email>kayvanfar.sj@gmail.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
+
     <properties>
 
     </properties>
