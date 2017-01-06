@@ -35,7 +35,7 @@ public class User extends EntityBase implements Serializable {
     private String name;
 
     @Size(min = 5, max = 40)
-    @Column(name = "USER_NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Column(name = "USERNAME", nullable = false, insertable = true, updatable = true, length = 40)
     @Basic
     @NotNull
     private String username;

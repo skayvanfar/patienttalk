@@ -37,6 +37,6 @@ public class LoginController {
 
     @RequestMapping(value="/l", method = RequestMethod.GET)
     public String test() {
-        return "index";
+        return "welcome";
     }
 }

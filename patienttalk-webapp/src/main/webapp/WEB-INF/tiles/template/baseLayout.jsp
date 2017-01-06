@@ -27,7 +27,7 @@
 </head>
 <body>
 
-<tiles:insertAttribute name="navigation"/>
+<%--<tiles:insertAttribute name="navigation"/>--%>
 <div tabindex="-1" id="content" class="bs-docs-header">
     <div class="container">
         <h1><tiles:insertAttribute name="heading"/></h1>

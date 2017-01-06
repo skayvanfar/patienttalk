@@ -46,7 +46,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
     TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions("WEB-INF/tiles/definition/layout-tile-definition.xml","WEB-INF/tiles/definition/pages-tile-definition.xml");
+        tilesConfigurer.setDefinitions("WEB-INF/tiles/definition/layout-tile-definition.xml", "WEB-INF/tiles/definition/pages-tile-definition.xml");
         tilesConfigurer.setPreparerFactoryClass(org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory.class);
         return tilesConfigurer;
     }
