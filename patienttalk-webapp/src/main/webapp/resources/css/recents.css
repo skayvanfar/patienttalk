@@ -1,0 +1,474 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit;
+}
+
+hr {
+    color: #c8a3c2;
+}
+
+section.page-section {
+    width: auto;
+    direction: rtl;
+}
+
+section.page-section > h1 {
+    color: #99538F;
+    margin-top: -30px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+section.page-section h1 span {
+    background: #ffffff;
+}
+
+.production-box {
+    /*border-top: 1px solid #dadada;*/
+    /*border-bottom: 1px solid #dadada;*/
+    /*border-right: 2px solid #dadada;*/
+    /*border-left: 2px solid #dadada;*/
+    background-color: #F6F6F6;
+    align-content: center;
+    padding: 1px;
+    margin: 10px;
+    box-shadow: 0.5px 0.5px 2px #888888;
+}
+
+.production-description {
+    width: 30%;
+}
+
+.production-img {
+    width: 70%;
+}
+
+.big-production-box img {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 100%;
+}
+
+.production-box .circular {
+    width: 66px;
+    height: 66px;
+    border-radius: 33px;
+    -webkit-border-radius: 33px;
+    -moz-border-radius: 33px;
+    position: absolute;
+    display: inline-block;
+    bottom: -33px;
+    right: 13px;
+}
+
+.artist-cover-data-name {
+    text-align: justify;
+    display: inline-block;
+    color: #ffffff;
+}
+
+.artist-cover-data-name h1 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 42px;
+    color: inherit;
+}
+
+.artist-cover-data-name .button-container {
+    text-align: center
+}
+
+.big-icon {
+    font-size: 28px
+}
+
+.production-box h1 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 42px;
+}
+
+.production-box p {
+    text-align: justify;
+    font-size: 0.9em;
+}
+
+.production-box .heart {
+    position: absolute;
+    color: #ffffff;
+    bottom: 5px;
+    left: 13px;
+}
+
+.production-box .basket {
+    position: absolute;
+    color: #4ba51f;
+    bottom: -30px;
+    left: 13px;
+}
+
+.production-box .big .img {
+    width: 100%;
+    height: 170px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.big-production-box .basket {
+    position: absolute;
+    color: #4ba51f;
+    top: 15px;
+    bottom: auto;
+    left: 13px;
+    font-size: 13px;
+}
+
+.red .production-box .basket {
+    color: #fe7040;
+}
+
+.production-box .artist-text {
+    font-size: 0.7em;
+    position: absolute;
+    bottom: 5px;
+    color: #ffffff;
+    right: 92px;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+.production-box .artist-type {
+    font-weight: bold;
+    font-size: 0.7em;
+    position: absolute;
+    bottom: -30px;
+    color: #666666;
+    right: 92px;
+}
+
+.production-box .production-thumbnail {
+    border: 2px solid;
+    border-color: #dadada;
+    border-radius: 5px;
+    height: 55px;
+}
+
+.production-box .production-thumbnail.extra {
+    background-color: #dadada;
+    color: #cf4949;
+    text-align: center;
+    font-weight: bold;
+}
+
+.production-box .production-row {
+    margin: 3px;
+
+}
+
+.production-box .production-row .column, .production-box .production-row .columns {
+    padding: 0.1em !important;
+}
+
+.production-box .production-header {
+    position: relative;
+}
+
+.green .slick-dots li.slick-active button:before {
+    color: #66cc33;
+}
+
+.red .slick-dots li.slick-active button:before {
+    color: #ff6633;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+}
+
+.slick-prev, .slick-next {
+    height: inherit;
+}
+
+[dir="rtl"] .slick-next:before {
+    color: #999999;
+    content: "›";
+    font-size: 40px;
+    margin-top: -50px;
+}
+
+[dir="rtl"] .slick-prev:before {
+    color: #999999;
+    content: "‹";
+    font-size: 40px;
+    margin-top: -50px;
+}
+
+.a-pagination li {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 17px;
+    color: #ffffff;
+    line-height: 38px;
+    text-align: center;
+    display: inline-block;
+    background: #cccccc;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.a-pagination .current {
+    background: #67cb33;
+}
+
+.a-pagination a {
+    color: #000000;
+}
+
+.a-pagination {
+    text-align: center;
+    direction: ltr;
+}
+
+.production-cover {
+    border: 2px solid;
+    border-color: #dadada;
+    border-radius: 5px;
+}
+
+.production-cover .production-info {
+
+}
+
+.production-info .production-heart {
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 26px;
+    background-color: #ffffff;
+    height: 28px;
+    border: 2px solid;
+    border-color: #dadada;
+    margin-left: 4px;
+}
+
+.production-info .production-basket {
+    text-align: center;
+    font-size: 26px;
+    color: #ffffff;
+    background-color: #66CC34;
+    height: 28px;
+}
+
+.production-info .production-price {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #9ACC68;
+    height: 28px;
+}
+
+.production-info .tag {
+    color: #ffffff;
+    background-color: #C8A4C2;
+    padding: 2px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.production-info .circular {
+    width: 66px;
+    height: 66px;
+    border-radius: 33px;
+    -webkit-border-radius: 33px;
+    -moz-border-radius: 33px;
+    position: absolute;
+    display: inline-block;
+    top: -33px;
+    right: 13px;
+}
+
+.production-thumbnail-container {
+    position: relative;
+    display: inline-flex;
+    top: -50%;
+    margin: -20px;
+}
+
+.production-thumbnail-container .production-thumbnail {
+    border: 2px solid;
+    border-color: #dadada;
+    border-radius: 5px;
+    padding: 0px !important;
+}
+
+.artist-production-description {
+    height: 60px;
+    overflow: hidden;
+}
+
+.hr {
+    border-bottom: 1px solid #c8a3c2;
+    height: 6px;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.search-border {
+    border: solid #7FCCE8 1px;
+    border-top-color: #ffffff;
+    width: 100%;
+    height: 10px;
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 0px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 5px;
+    top: 13px;
+    z-index: 1;
+    color: #7fcce8;
+    font-size: 20px;
+    display: inline;
+}
+
+.search-query-handler {
+    color: #99538F;
+    padding: 10px;
+    border: 0 none;
+    display: inline;
+    width: 100%;
+}
+
+.search-box {
+    display: inline-block;
+    width: 27%;
+    position: absolute;
+    top: -25px;
+}
+
+.main-random-production {
+    background-color: #ffffff !important;
+    border: none !important;
+    display: flex;
+    height: 380px;
+    margin-bottom: 60px;
+}
+
+.side-image {
+    width: 100%;
+    height: 190px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.white {
+    color: #ffffff !important;
+    text-shadow: 0.5px 0.5px #888888;
+}
+
+.main-random-production .slider-thumbs {
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    bottom: -47px;
+    left: 20px;
+}
+
+.main-random-production .slider-thumbs .thumb {
+    display: inline-block;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 2px;
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    vertical-align: bottom;
+}
+
+.main-random-production .slider-thumbs .thumb img {
+    height: 100%;
+    width: 100%;
+}
+
+.main-random-production .slider-thumbs .extra {
+    background-color: #663366;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+}
+
+.main-random-production .slider-thumbs .extra a {
+    color: #ffffff;
+    line-height: 250%;
+}
+
+.other-productions {
+    position: relative;
+    color: #663366;
+}
+
+.other-productions .slider-thumbnail-box {
+    display: inline-block;
+}
+
+@media (max-width: 990px) {
+    .other-productions-text {
+        display: none;
+    }
+}
+
+@media (max-width: 425px) {
+    .other-productions .slider-thumbnail-box {
+        display: none;
+    }
+}
+
+.inline-menu-right-icon {
+    margin-right: 15px;
+    color: #924885;
+}
+
+.inline-menu-left-icon {
+    margin-left: 15px;
+    float: left;
+}
+
+.inline-menu-center {
+    text-align: center;
+}
+
+.inline-menu-icons {
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+.logo-purple {
+    color: #924885;
+}
+
+.basket-green {
+    color: #5CC91E;
+}
+
+.find-blue {
+    color: #83CADE;
+}
+
+.production-box .medium .img {
+    width: 100%;
+    height: 80px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.production-box .small-circular {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    bottom: -20px;
+}
+
+.production-box .small-artist-type {
+    bottom: -22px;
+    right: 65px;
+}

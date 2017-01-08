@@ -1,0 +1,320 @@
+
+.production-detail {
+    background-color: #f8f4f7;
+    border: solid 1px #e5e5e5;
+}
+
+.production-detail .title {
+    margin: 20px 15px 0 0;
+    color: #663366;
+}
+
+.production-detail .model {
+    margin: 5px 25px 0 0;
+    color: #914191;
+}
+
+.production-detail .artist {
+    margin: 15px 0;
+    position: relative;
+}
+
+.production-detail .artist .name {
+    color: #64b2b3;
+    margin: 0 55px 0 0;
+    border-bottom: solid #cfcfcf 1px;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.production-detail .artist .description {
+    margin: 0 50px 0 0;
+    color: #666666;
+    padding: 5px 0;
+}
+
+.production-detail .artist img {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    right: -25px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    top: 0;
+}
+
+.production-detail ul.tags, .production-detail ul.tags li, .production-detail ul.tags ol, .production-detail ul.tags ul {
+    list-style: none;
+}
+
+.production-detail ul.tags li {
+    background-color: #c8a3c2;
+    padding: 10px 15px;
+    color: #ffffff;
+    display: inline-block;
+    margin: 5px;
+}
+
+.production-detail .images {
+    position: relative;
+}
+
+.production-detail .images .big {
+    padding: 5px;
+}
+
+.production-detail .images .big .img {
+    height: 342px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.production-detail .images .thumbs {
+    list-style: none;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -40px;
+}
+
+.production-detail .images .thumbs .img {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 2px;
+    width: 60px;
+    height: 60px;
+}
+
+/*--------------- Artist Page -------------*/
+.artist-cover {
+    height: 370px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 140px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.artist-cover-data {
+    position: relative;
+}
+
+.artist-cover .artist-info {
+    margin-top: 40px;
+    height: 70px;
+}
+
+.artist-cover .artist-info .picture {
+    width: 140px;
+    height: 140px;
+    border-radius: 70px;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    display: inline-block;
+    float: right;
+}
+
+.artist-cover .artist-info .name {
+    color: #ffffff;
+    font-size: 1.428rem;
+    margin-right: 150px;
+    margin-top: 15px;
+}
+
+.artist-cover .artist-info .name {
+    color: #ffffff;
+    font-size: 1.428rem;
+    margin-right: 150px;
+    margin-top: 15px;
+}
+
+.artist-cover .artist-info .biography {
+    border-top: solid #75788d 1px;
+    margin-right: 150px;
+    overflow: hidden;
+    color: #dadada;
+    padding-top: 5px;
+}
+
+.artist-cover .productions img {
+    width: 100px;
+    height: 100px;
+    margin: 3px;
+}
+
+.artist-cover .productions a {
+    display: inline-block;
+}
+
+.artist-cover .productions {
+    margin-top: 40px;
+}
+
+.artist-cover .most-grossing {
+    text-align: center;
+    position: absolute;
+    bottom: -60px;
+    list-style: none;
+    left: 0;
+    right: 0;
+}
+
+.artist-cover .most-grossing li {
+    width: 76px;
+    height: 76px;
+    padding: 2px;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #ffffff;
+}
+
+.artist-cover .most-grossing li img {
+    width: 100%;
+    height: 100%;
+}
+
+.shopping-square-icon {
+    font-size: 25px;
+    background-color: #67CB33;
+    height: 50px;
+    padding-top: 13px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.shopping-square-text {
+    background-color: #99CC67;
+    height: 50px;
+    padding-top: 15px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.shopping-square {
+    margin-right: 5px;
+}
+
+.number-combo {
+}
+
+.shopping-square-reserved {
+    color: #904985;
+}
+
+.basket-box-wrapper {
+    position: relative;
+    font-size: 12px;
+    width: 400px;
+}
+
+.basket-box {
+    position: absolute;
+    top: 9.5px;
+    right: 4px;
+    z-index: 0;
+    border: solid 1px #67CB33;
+    box-shadow: 1px 1px 3px #bbbbbb;
+    background-color: #ffffff;
+    padding-top: 5px;
+}
+
+.basket-item-wrapper {
+    border-bottom: solid 1px #bbbbbb;
+    padding: 2px;
+    margin: 2px;
+}
+
+.basket-item-name {
+    border-left: solid 1px #bbbbbb;
+}
+
+.basket-item-icon {
+    color: #ff6633;
+    font-size: 20px;
+}
+
+.basket-box-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #67CB33;
+    z-index: 1;
+    left: 20px;
+}
+
+.basket-box-triangle-inner {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 7.5px solid transparent;
+    border-right: 7.5px solid transparent;
+    border-bottom: 9px solid #ffffff;
+    z-index: 2;
+    left: 21px;
+    top: 2px;
+}
+
+.basket-box-shopping-square {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.basket-item-text {
+    color: #904985;
+    text-align: center;
+}
+
+.basket-box-continue {
+    color: #ffffff;
+    background-color: #CCCCCC;
+    padding: 12px;
+    margin: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#basket-box-header {
+    position: absolute;
+    left: -22px;
+    top: 20px;
+    z-index: 10;
+    display: none;
+}
+
+.buy-summary .hr {
+    border-bottom: 1px dotted #000;
+    height: 14px; /* specify a height for this hr */
+    overflow: hidden;
+}
+
+.buy-summary .hr:after {
+    content: ".......................................................................";
+    letter-spacing: 8px; /* Use letter-spacing to increase space between dots*/
+}
+
+.buying-title {
+    color: #FF8C67;
+}
+
+.buy-summary {
+    color: #904985;
+}
+
+.production-buy-box {
+    color: #000000;
+    border-top: 1px solid #c0c0c0;
+    font-size: 10px;
+    margin: 0 !important;
+}
+
+.production-buy-box-row {
+    border-bottom: 1px dotted #c0c0c0;
+}
+
+.artmart-black {
+    color: #000000;
+}

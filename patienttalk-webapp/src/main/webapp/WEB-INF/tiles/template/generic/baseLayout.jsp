@@ -1,0 +1,86 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Saeed
+  Date: 1/6/2017
+  Time: 2:14 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+
+<!DOCTYPE html>
+
+<!--[if IE 6]> <html class="ie6" class="no-js" lang="fa" dir="rtl"> <![endif]-->
+<!--[if IE 7]> <html class="ie7" class="no-js" lang="fa" dir="rtl"> <![endif]-->
+<!--[if IE 8]> <html class="ie8" class="no-js" lang="fa" dir="rtl"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="fa" dir="rtl">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><tiles:insertAttribute name="title"/></title>
+
+    <script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>
+    <%--
+        <script src="<c:url value="/resources/js/core.js" />"></script>
+    --%>
+    <%--<link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">--%>
+
+    <link rel="stylesheet" href="<s:url value="/resources/css/normalize.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/foundation.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/main.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/icon.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/slick/slick.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/top.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/recents.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/production.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/form.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/cropper/style.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/cropper/jquery.Jcrop.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/css/image_gallery/magnific-popup.css" />"/>
+
+    <script src="<s:url value="/resources/js/jquery.js" />"></script>
+    <script src="<s:url value="/resources/js/modernizr.js" />"></script>
+    <script src="<s:url value="/resources/js/fastclick.js" />"></script>
+    <script src="<s:url value="/resources/js/placeholder.js" />"></script>
+    <script src="<s:url value="/resources/js/form.js" />"></script>
+    <script src="<s:url value="/resources/slick/slick.js" />"></script>
+    <script src="<s:url value="/resources/js/production.js" />"></script>
+    <script src="<s:url value="/resources/js/cropper/jquery.Jcrop.js" />"></script>
+    <script src="<s:url value="/resources/js/cropper/jquery.SimpleCropper.js" />"></script>
+    <script src="<s:url value="/resources/js/vendor/jquery.ui.widget.js" />"></script>
+    <script src="<s:url value="/resources/js/file_upload/jquery.iframe-transport.js" />"></script>
+    <script src="<s:url value="/resources/js/file_upload/jquery.fileupload.js" />"></script>
+    <script src="<s:url value="/resources/js/image_gallery/jquery.magnific-popup.min.js" />"></script>
+    <script src="<s:url value="/resources/js/foundation.min.js" />"></script>
+    <script src="<s:url value="/resources/js/foundation.equalizer.js" />"></script>
+    <!--[if lt IE 9]>
+    <script src='<s:url value="/resources/js/html5shiv.min.js" />'></script>
+    <script src='<s:url value="/resources/js/respond.min.js" />'></script>
+    <![endif]-->
+
+</head>
+<body>
+
+<%--<tiles:insertAttribute name="navigation"/>--%>
+<div tabindex="-1" id="content" class="bs-docs-header">
+    <div class="container">
+        <%--        <s:message code="addProduct.form.productId.label"/>--%>
+        <h1><tiles:insertAttribute name="heading"/></h1>
+
+        <p><tiles:insertAttribute name="tagline"/></p>
+    </div>
+</div>
+<div class="container bs-docs-container">
+    <tiles:insertAttribute name="content"/>
+</div>
+<footer role="contentinfo" class="bs-docs-footer">
+    <tiles:insertAttribute name="footer"/>
+</footer>
+</body>
+</html>

@@ -1,0 +1,21 @@
+.s-top-bar {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    left: 0;
+    background: #fff;
+}
+
+
+.s-top-bar .s-top-section {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.s-top-bar .s-top-section.active {
+    display: block;
+    padding: 5px 0;
+}

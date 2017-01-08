@@ -11,7 +11,14 @@
         <put-attribute name="title" value="Welcome" />
         <put-attribute name="heading" value="Welcome to Patient Talk" />
         <put-attribute name="tagline" value="The amazing Patient Talk Forum" />
-        <put-attribute name="content" value="/WEB-INF/view/index.jsp" />
+        <put-attribute name="content" value="/WEB-INF/view/testui.jsp" />
+    </definition>
+
+    <definition name="testui" extends="baseLayout">
+        <put-attribute name="title" value="Welcome" />
+        <put-attribute name="heading" value="Welcome to Patient Talk" />
+        <put-attribute name="tagline" value="The amazing Patient Talk Forum" />
+        <put-attribute name="content" value="/WEB-INF/view/testui.jsp" />
     </definition>
 
 </tiles-definitions>
