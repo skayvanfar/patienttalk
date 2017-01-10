@@ -5,11 +5,13 @@
 <tiles-definitions>
 
     <definition name="baseLayout" template="/WEB-INF/tiles/template/generic/baseLayout.jsp">
-        <put-attribute name="title" value="Sample Title" />
-        <put-attribute name="angular" value="" />
+        <put-attribute name="title" value="انجمن گفتگوی بیماران" />
+        <!--<put-attribute name="angular" value="" />-->
+        <put-attribute name="top" value="/WEB-INF/tiles/template/generic/top.jsp"/>
         <put-attribute name="heading" value="" />
-        <put-attribute name="tagline" value="" />
-        <!--<put-attribute name="navigation" value="/WEB-INF/tiles/template/navigation.jsp" />-->
+        <put-attribute name="header" value="/WEB-INF/tiles/template/generic/header.jsp" />
+        <!--<put-attribute name="tagline" value="" />-->
+        <put-attribute name="navigation" value="/WEB-INF/tiles/template/generic/navigation.jsp"/>
         <put-attribute name="content" value="" />
         <put-attribute name="footer" value="/WEB-INF/tiles/template/generic/footer.jsp" />
     </definition>

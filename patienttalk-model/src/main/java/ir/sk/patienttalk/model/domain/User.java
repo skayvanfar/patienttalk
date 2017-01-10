@@ -35,10 +35,10 @@ public class User extends EntityBase implements Serializable {
     @NotNull(message= "{NotNull.User.username.validation}")
     private String username;
 
-    @Size(max = 50, message="{Size.User.code.validation}")
+    /*@Size(max = 50, message="{Size.User.code.validation}")
     @Column(name = "CODE", nullable = false, length = 50, unique = true)
     @Basic
-    private String code;
+    private String code;*/
 
     @Column(name = "PASSWORD", nullable = false, length = 100)
     @Basic
@@ -109,13 +109,13 @@ public class User extends EntityBase implements Serializable {
         this.username = username;
     }
 
-    public String getCode() {
+   /* public String getCode() {
         return code;
     }
 
     public void setCode(String code) {
         this.code = code;
-    }
+    }*/
 
     public String getPassword() {
         return password;
@@ -227,7 +227,6 @@ public class User extends EntityBase implements Serializable {
         if (id != user.id) return false;
         if (onlineStatus != user.onlineStatus) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
-        if (code != null ? !code.equals(user.code) : user.code != null) return false;
         if (password != null ? !password.equals(user.password) : user.password != null) return false;
         if (userRoles != null ? !userRoles.equals(user.userRoles) : user.userRoles != null) return false;
         if (profile != null ? !profile.equals(user.profile) : user.profile != null) return false;
@@ -248,7 +247,6 @@ public class User extends EntityBase implements Serializable {
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (code != null ? code.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (onlineStatus ? 1 : 0);
         result = 31 * result + (userRoles != null ? userRoles.hashCode() : 0);
@@ -268,7 +266,6 @@ public class User extends EntityBase implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", code='" + code + '\'' +
                 ", password='" + password + '\'' +
                 ", onlineStatus=" + onlineStatus +
                 ", userRoles=" + userRoles +

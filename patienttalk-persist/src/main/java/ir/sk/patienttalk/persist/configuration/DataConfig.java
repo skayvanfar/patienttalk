@@ -1,5 +1,6 @@
 package ir.sk.patienttalk.persist.configuration;
 
+import ir.sk.patienttalk.common.persistence.file.web.TempFileAccess;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -64,5 +65,10 @@ public class DataConfig {
                 setProperty("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
             }
         };
+    }
+
+    @Bean
+    public TempFileAccess tempFileAccess() {
+        return new TempFileAccess();
     }
 }

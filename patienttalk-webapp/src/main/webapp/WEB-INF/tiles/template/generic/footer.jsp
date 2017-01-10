@@ -5,9 +5,34 @@
   Time: 2:16 PM
   To change this template use File | Settings | File Templates.
 --%>
-<div class="container">
-    <ul class="bs-docs-footer-links">
-        <li><a href="../about/">About</a></li>
-    </ul>
-    <p>Designed and built with all the love in the world by <a target="_blank" href="https://twitter.com/skayvanfar">@skayvanfar</a></p>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://sk.ir/patienttalk/zurb-foundation-form" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+
+<div>
+    <div class="columns medium-5 links">
+        <a href="#">درباره انجمن گفتگوی بیمار</a>
+        <a href="#">مقرارت</a>
+        <a href="#">وبلاگ</a>
+    </div>
+    <div class="columns medium-2 s-footer-logo">
+        <img src="<s:url value="/resources/img/logo-footer.png" />">
+    </div>
+    <div class="columns medium-5 text-left socials">
+        <div class="columns medium-12 small-12-">
+            <a href="#"><i class="icon icon-twitter"></i></a>
+            <a href="#"><i class="icon icon-google_plus"></i></a>
+            <a href="#"> <i class="icon icon-instagram"></i></a>
+            <a href="#"><i class="icon icon-facebook_2"></i></a>
+        </div>
+        <div class="columns medium-12 text-left copyright">
+            تمام حقوق برای سایت انجمن گفتگوی بیمار محفوظ است &copy; 1395 <br/>
+            طراحی: سعید کیوان فر <br/>
+            پیاده سازی: سعید کیوان فر <br/>
+        </div>
+    </div>
 </div>

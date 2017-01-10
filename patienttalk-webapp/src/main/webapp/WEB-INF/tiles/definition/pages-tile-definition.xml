@@ -7,7 +7,7 @@
     <definition name="login" template="/WEB-INF/view/security/login.jsp">
     </definition>
 
-    <definition name="welcome" extends="baseLayout">
+    <definition name="home" extends="baseLayout">
         <put-attribute name="title" value="Welcome" />
         <put-attribute name="heading" value="Welcome to Patient Talk" />
         <put-attribute name="tagline" value="The amazing Patient Talk Forum" />

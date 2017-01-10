@@ -10,6 +10,7 @@ import org.hibernate.annotations.Parent;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -38,6 +39,7 @@ public class Profile implements Serializable {
 
     @Column(name = "GENDER_ENUM", nullable = false)
     @Enumerated(EnumType.ORDINAL)
+    @NotNull
     private GenderEnum genderEnum = GenderEnum.UNKNOWN;
 
     @Column(name = "NICK_NAME", length = 100)
@@ -55,8 +57,9 @@ public class Profile implements Serializable {
     private String phone;
 
     @Size(max = 50, message="{Size.Profile.location.message}")
-    @Column(name = "LOCATION", nullable = false, length = 50, unique = true)
+    @Column(name = "LOCATION", nullable = false, length = 50)
     @Basic
+    @NotNull
     private String location;
 
     @Embedded
@@ -254,7 +257,7 @@ public class Profile implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = user != null ? user.hashCode() : 0;
+        int result = (int) (user.getId() ^ (user.getId() >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (family != null ? family.hashCode() : 0);
         result = 31 * result + (genderEnum != null ? genderEnum.hashCode() : 0);

@@ -5,11 +5,12 @@
   Time: 2:14 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <!DOCTYPE html>
 
@@ -63,24 +64,40 @@
     <script src='<s:url value="/resources/js/html5shiv.min.js" />'></script>
     <script src='<s:url value="/resources/js/respond.min.js" />'></script>
     <![endif]-->
-
 </head>
-<body>
+<body class="main-layout">
+
+<dl class="s-top-bar" data-magellan-expedition
+    data-options="throttle_delay:0;offset_by_height:false;">
+    <tiles:insertAttribute name="top"/>
+</dl>
+<div id="s-wrapper" data-magellan-destination="s-wrapper">
+    <div id="s-header">
+        <tiles:insertAttribute name="header"/>
+    </div>
+    <div id="s-navigation">
+        <tiles:insertAttribute name="navigation"/>
+    </div>
+    <div id="s-content" data-magellan-destination="s-content">
+        <tiles:insertAttribute name="content"/>
+    </div>
+</div>
+<div id="s-footer" data-magellan-destination="s-footer">
+    <tiles:insertAttribute name="footer"/>
+</div>
+<script>
+    $(document).foundation();
+</script>
 
 <%--<tiles:insertAttribute name="navigation"/>--%>
-<div tabindex="-1" id="content" class="bs-docs-header">
+<%--<div tabindex="-1" id="content" class="bs-docs-header">
     <div class="container">
-        <%--        <s:message code="addProduct.form.productId.label"/>--%>
+        &lt;%&ndash;        <s:message code="addProduct.form.productId.label"/>&ndash;%&gt;
         <h1><tiles:insertAttribute name="heading"/></h1>
 
         <p><tiles:insertAttribute name="tagline"/></p>
     </div>
-</div>
-<div class="container bs-docs-container">
-    <tiles:insertAttribute name="content"/>
-</div>
-<footer role="contentinfo" class="bs-docs-footer">
-    <tiles:insertAttribute name="footer"/>
-</footer>
+</div>--%>
+
 </body>
 </html>

@@ -64,12 +64,12 @@ public class UserReceivedEmoji implements Serializable {
     protected Date addedOnDate = new Date();
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_USER_ID", nullable = false)
+    @JoinColumn(name = "FK_USER_ID", nullable = false, insertable = false, updatable = false)
     @NotNull(message= "{NotNull.UserReceivedEmoji.user.validation}")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_EMOJI_ID", nullable = false)
+    @JoinColumn(name = "FK_EMOJI_ID", nullable = false, insertable = false, updatable = false)
     @NotNull(message= "{NotNull.UserReceivedEmoji.emoji.validation}")
     private Emoji emoji;
 

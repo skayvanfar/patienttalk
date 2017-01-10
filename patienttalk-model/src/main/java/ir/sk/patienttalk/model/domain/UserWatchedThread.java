@@ -58,12 +58,12 @@ public class UserWatchedThread implements Serializable {
 
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_USER_ID", nullable = false)
+    @JoinColumn(name = "FK_USER_ID", nullable = false, insertable = false, updatable = false)
     @NotNull(message= "{NotNull.UserWatchedThread.user.validation}")
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_THREAD_ID", nullable = false)
+    @JoinColumn(name = "FK_THREAD_ID", nullable = false, insertable = false, updatable = false)
     @NotNull(message= "{NotNull.UserWatchedThread.thread.validation}")
     private Thread thread;
 

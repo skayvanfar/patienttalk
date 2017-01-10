@@ -19,6 +19,13 @@ public class EmailAddress {
     @Size(min = 5, max = 100, message="{Size.EmailAddress.mail.validation}")
     private String mail;
 
+    public EmailAddress() {
+    }
+
+    public EmailAddress(String mail) {
+        this.mail = mail;
+    }
+
     public String getMail() {
         return mail;
     }
