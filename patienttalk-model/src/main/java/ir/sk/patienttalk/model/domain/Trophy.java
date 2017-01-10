@@ -52,4 +52,34 @@ public class Trophy extends EntityBase implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Trophy trophy = (Trophy) o;
+
+        if (id != trophy.id) return false;
+        if (name != null ? !name.equals(trophy.name) : trophy.name != null) return false;
+        return user != null ? user.equals(trophy.user) : trophy.user == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Trophy{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", user=" + user +
+                '}';
+    }
 }

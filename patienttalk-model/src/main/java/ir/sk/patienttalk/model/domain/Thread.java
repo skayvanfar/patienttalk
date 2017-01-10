@@ -46,10 +46,14 @@ public class Thread extends EntityBase implements Serializable {
     private Date startDate;
 
     // How many time has seen
-    private long views;
+    @Column(name = "VIEW_TIMES", nullable = false, insertable = true, updatable = true)
+    @Basic
+    private long viewTimes = 0;
 
     // How many time has replied
-    private long replies;
+    @Column(name = "REPLY_TIMES", nullable = false, insertable = true, updatable = true)
+    @Basic
+    private long replyTimes = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_USER_ID", nullable = false)
@@ -102,20 +106,20 @@ public class Thread extends EntityBase implements Serializable {
         this.startDate = startDate;
     }
 
-    public long getViews() {
-        return views;
+    public long getViewTimes() {
+        return viewTimes;
     }
 
-    public void setViews(long views) {
-        this.views = views;
+    public void setViewTimes(long viewTimes) {
+        this.viewTimes = viewTimes;
     }
 
-    public long getReplies() {
-        return replies;
+    public long getReplyTimes() {
+        return replyTimes;
     }
 
-    public void setReplies(long replies) {
-        this.replies = replies;
+    public void setReplyTimes(long replyTimes) {
+        this.replyTimes = replyTimes;
     }
 
     public User getUser() {
@@ -132,5 +136,63 @@ public class Thread extends EntityBase implements Serializable {
 
     public void setUserWatchedThreads(List<UserWatchedThread> userWatchedThreads) {
         this.userWatchedThreads = userWatchedThreads;
+    }
+
+    // A convenience method simplifies relationship management
+    public void addPost(Post post) {
+        if (post == null)
+            throw new NullPointerException("Can't add null Post"); // Be defensive
+        if (post.getThread() != null)
+            throw new IllegalStateException("Post is already assigned to an Thread");
+        getPosts().add(post);
+        post.setThread(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Thread thread = (Thread) o;
+
+        if (id != thread.id) return false;
+        if (viewTimes != thread.viewTimes) return false;
+        if (replyTimes != thread.replyTimes) return false;
+        if (name != null ? !name.equals(thread.name) : thread.name != null) return false;
+        if (posts != null ? !posts.equals(thread.posts) : thread.posts != null) return false;
+        if (subForum != null ? !subForum.equals(thread.subForum) : thread.subForum != null) return false;
+        if (startDate != null ? !startDate.equals(thread.startDate) : thread.startDate != null) return false;
+        if (user != null ? !user.equals(thread.user) : thread.user != null) return false;
+        return userWatchedThreads != null ? userWatchedThreads.equals(thread.userWatchedThreads) : thread.userWatchedThreads == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (posts != null ? posts.hashCode() : 0);
+        result = 31 * result + (subForum != null ? subForum.hashCode() : 0);
+        result = 31 * result + (startDate != null ? startDate.hashCode() : 0);
+        result = 31 * result + (int) (viewTimes ^ (viewTimes >>> 32));
+        result = 31 * result + (int) (replyTimes ^ (replyTimes >>> 32));
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (userWatchedThreads != null ? userWatchedThreads.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Thread{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", posts=" + posts +
+                ", subForum=" + subForum +
+                ", startDate=" + startDate +
+                ", viewTimes=" + viewTimes +
+                ", replyTimes=" + replyTimes +
+                ", user=" + user +
+                ", userWatchedThreads=" + userWatchedThreads +
+                '}';
     }
 }

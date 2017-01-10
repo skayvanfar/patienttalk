@@ -81,4 +81,50 @@ public class Forum extends EntityBase implements Serializable {
     public void setWatchedUser(User watchedUser) {
         this.watchedUser = watchedUser;
     }
+
+    // A convenience method simplifies relationship management
+    public void addSubForum(SubForum subForum) {
+        if (subForum == null)
+            throw new NullPointerException("Can't add null SubForum"); // Be defensive
+        if (subForum.getForum() != null)
+            throw new IllegalStateException("SubForum is already assigned to an Forum");
+        getSubForums().add(subForum);
+        subForum.setForum(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Forum forum = (Forum) o;
+
+        if (id != forum.id) return false;
+        if (name != null ? !name.equals(forum.name) : forum.name != null) return false;
+        if (subForums != null ? !subForums.equals(forum.subForums) : forum.subForums != null) return false;
+        if (channel != null ? !channel.equals(forum.channel) : forum.channel != null) return false;
+        return watchedUser != null ? watchedUser.equals(forum.watchedUser) : forum.watchedUser == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (subForums != null ? subForums.hashCode() : 0);
+        result = 31 * result + (channel != null ? channel.hashCode() : 0);
+        result = 31 * result + (watchedUser != null ? watchedUser.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Forum{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", subForums=" + subForums +
+                ", channel=" + channel +
+                ", watchedUser=" + watchedUser +
+                '}';
+    }
 }

@@ -30,11 +30,6 @@ public class User extends EntityBase implements Serializable {
     private long id;
 
     @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = true, insertable = true, updatable = true, length = 40)
-    @Basic
-    private String name;
-
-    @Size(min = 5, max = 40)
     @Column(name = "USERNAME", nullable = false, insertable = true, updatable = true, length = 40)
     @Basic
     @NotNull
@@ -51,29 +46,7 @@ public class User extends EntityBase implements Serializable {
     @Size(max = 100)
     private String password;
 
-    @Column(name = "GENDER_ENUM", nullable = true, insertable = true, updatable = true)
-    @Enumerated(EnumType.ORDINAL)
-    private GenderEnum genderEnum;
-
-    @Column(name = "NATIONALITY_ENUM", nullable = true, insertable = true, updatable = true)
-    @Enumerated(EnumType.ORDINAL)
-    private NationalityEnum nationalityEnum;
-
-    @Column(name = "PHONE", nullable = true, insertable = true, updatable = true, length = 20)
-    @Basic
-    @Size(min = 4, max = 20)
-    private String phone;
-
-    @Size(max = 50)
-    @Column(name = "LOCATION", nullable = false, insertable = true, updatable = true, length = 50, unique = true)
-    @Basic
-    private String location;
-
-    @Column(name = "MAIL", nullable = true, insertable = true, updatable = true, length = 100)
-    @Basic
-    @Size(min = 5, max = 100)
-    private String mail;
-
+    @Transient
     private boolean onlineStatus;
 
     @ElementCollection(fetch = FetchType.EAGER, targetClass = UserRole.class)
@@ -82,30 +55,8 @@ public class User extends EntityBase implements Serializable {
     @Column(name = "USER_ROLE")
     private Set<UserRole> userRoles;
 
-    @Column(name = "ILLNESS_SINCE", nullable = true, insertable = true, updatable = true, length = 100)
-    @Basic
-    @Size(min = 5, max = 100)
-    private String illnessSince;
-
-    @Column(name = "MEMBER_DATE", nullable = false, insertable = true, updatable = true)
-    @Basic
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date memberDate;
-
-    @Column(name = "LAST_SEEN_DATE", nullable = false, insertable = true, updatable = true)
-    @Basic
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date lastSeenDate;
-
-    @Column(name = "LAST_ACTIVITY_DATE", nullable = false, insertable = true, updatable = true)
-    @Basic
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date LastActivityDate;
-
-    @Column(name = "CAUSE_OF_ILLNESS", nullable = true, insertable = true, updatable = true, length = 100)
-    @Basic
-    @Size(min = 5, max = 100)
-    private String CauseOfIllness;
+    @Embedded
+    private Profile profile;
 
  //   private Image image;
 
@@ -150,14 +101,6 @@ public class User extends EntityBase implements Serializable {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -185,46 +128,6 @@ public class User extends EntityBase implements Serializable {
         this.password = hashedPassword;
     }
 
-    public GenderEnum getGenderEnum() {
-        return genderEnum;
-    }
-
-    public void setGenderEnum(GenderEnum genderEnum) {
-        this.genderEnum = genderEnum;
-    }
-
-    public NationalityEnum getNationalityEnum() {
-        return nationalityEnum;
-    }
-
-    public void setNationalityEnum(NationalityEnum nationalityEnum) {
-        this.nationalityEnum = nationalityEnum;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     public boolean isOnlineStatus() {
         return onlineStatus;
     }
@@ -233,44 +136,12 @@ public class User extends EntityBase implements Serializable {
         this.onlineStatus = onlineStatus;
     }
 
-    public String getIllnessSince() {
-        return illnessSince;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setIllnessSince(String illnessSince) {
-        this.illnessSince = illnessSince;
-    }
-
-    public Date getMemberDate() {
-        return memberDate;
-    }
-
-    public void setMemberDate(Date memberDate) {
-        this.memberDate = memberDate;
-    }
-
-    public Date getLastSeenDate() {
-        return lastSeenDate;
-    }
-
-    public void setLastSeenDate(Date lastSeenDate) {
-        this.lastSeenDate = lastSeenDate;
-    }
-
-    public Date getLastActivityDate() {
-        return LastActivityDate;
-    }
-
-    public void setLastActivityDate(Date lastActivityDate) {
-        LastActivityDate = lastActivityDate;
-    }
-
-    public String getCauseOfIllness() {
-        return CauseOfIllness;
-    }
-
-    public void setCauseOfIllness(String causeOfIllness) {
-        CauseOfIllness = causeOfIllness;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 
     public Mood getMood() {
@@ -329,22 +200,6 @@ public class User extends EntityBase implements Serializable {
         this.userWatchedThreads = userWatchedThreads;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        User user = (User) o;
-
-        if (id != user.id) return false;
-        if (mail != null ? !mail.equals(user.mail) : user.mail != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        if (phone != null ? !phone.equals(user.phone) : user.phone != null) return false;
-        if (username != null ? !username.equals(user.username) : user.username != null) return false;
-
-        return true;
-    }
-
     public Set<UserRole> getUserRoles() {
         if(userRoles==null)
             userRoles = new HashSet<>();
@@ -355,16 +210,6 @@ public class User extends EntityBase implements Serializable {
         this.userRoles = userRoles;
     }
 
-    @Override
-    public int hashCode() {
-        int result = username != null ? username.hashCode() : 0;
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (mail != null ? mail.hashCode() : 0);
-        result = 31 * result + (int) (id ^ (id >>> 32));
-        return result;
-    }
-
     public boolean hasUserRole(UserRole userRole) {
         for(UserRole role : userRoles)
             if(role == userRole)
@@ -372,8 +217,50 @@ public class User extends EntityBase implements Serializable {
         return false;
     }
 
-    public String getFullName() {
-        return username;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (id != user.id) return false;
+        if (onlineStatus != user.onlineStatus) return false;
+        if (username != null ? !username.equals(user.username) : user.username != null) return false;
+        if (code != null ? !code.equals(user.code) : user.code != null) return false;
+        if (password != null ? !password.equals(user.password) : user.password != null) return false;
+        if (userRoles != null ? !userRoles.equals(user.userRoles) : user.userRoles != null) return false;
+        if (profile != null ? !profile.equals(user.profile) : user.profile != null) return false;
+        if (mood != null ? !mood.equals(user.mood) : user.mood != null) return false;
+        if (threads != null ? !threads.equals(user.threads) : user.threads != null) return false;
+        if (userGivenEmojis != null ? !userGivenEmojis.equals(user.userGivenEmojis) : user.userGivenEmojis != null)
+            return false;
+        if (userReceivedEmojis != null ? !userReceivedEmojis.equals(user.userReceivedEmojis) : user.userReceivedEmojis != null)
+            return false;
+        if (trophies != null ? !trophies.equals(user.trophies) : user.trophies != null) return false;
+        if (watchedForums != null ? !watchedForums.equals(user.watchedForums) : user.watchedForums != null)
+            return false;
+        return userWatchedThreads != null ? userWatchedThreads.equals(user.userWatchedThreads) : user.userWatchedThreads == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (code != null ? code.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (onlineStatus ? 1 : 0);
+        result = 31 * result + (userRoles != null ? userRoles.hashCode() : 0);
+        result = 31 * result + (profile != null ? profile.hashCode() : 0);
+        result = 31 * result + (mood != null ? mood.hashCode() : 0);
+        result = 31 * result + (threads != null ? threads.hashCode() : 0);
+        result = 31 * result + (userGivenEmojis != null ? userGivenEmojis.hashCode() : 0);
+        result = 31 * result + (userReceivedEmojis != null ? userReceivedEmojis.hashCode() : 0);
+        result = 31 * result + (trophies != null ? trophies.hashCode() : 0);
+        result = 31 * result + (watchedForums != null ? watchedForums.hashCode() : 0);
+        result = 31 * result + (userWatchedThreads != null ? userWatchedThreads.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -382,8 +269,17 @@ public class User extends EntityBase implements Serializable {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", code='" + code + '\'' +
-                ", phone='" + phone + '\'' +
-                ", mail='" + mail + '\'' +
+                ", password='" + password + '\'' +
+                ", onlineStatus=" + onlineStatus +
+                ", userRoles=" + userRoles +
+                ", profile=" + profile +
+                ", mood=" + mood +
+                ", threads=" + threads +
+                ", userGivenEmojis=" + userGivenEmojis +
+                ", userReceivedEmojis=" + userReceivedEmojis +
+                ", trophies=" + trophies +
+                ", watchedForums=" + watchedForums +
+                ", userWatchedThreads=" + userWatchedThreads +
                 '}';
     }
 }

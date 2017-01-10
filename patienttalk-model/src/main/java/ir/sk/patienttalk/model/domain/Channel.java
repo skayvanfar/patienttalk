@@ -70,4 +70,13 @@ public class Channel extends EntityBase implements Serializable {
         this.themeColor = themeColor;
     }
 
+    // A convenience method simplifies relationship management
+    public void addForum(Forum forum) {
+        if (forum == null)
+            throw new NullPointerException("Can't add null Forum"); // Be defensive
+        if (forum.getChannel() != null)
+            throw new IllegalStateException("Forum is already assigned to an Channel");
+        getForums().add(forum);
+        forum.setChannel(this);
+    }
 }

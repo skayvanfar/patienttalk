@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +42,7 @@ public class Post extends EntityBase implements Serializable {
     @OneToMany(mappedBy = "post", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<PostHasEmoji> postHasEmojis;
+    private List<PostHasEmoji> postHasEmojis = new ArrayList<>();
 
     public Post() {
     }
@@ -72,5 +73,38 @@ public class Post extends EntityBase implements Serializable {
 
     public void setPostHasEmojis(List<PostHasEmoji> postHasEmojis) {
         this.postHasEmojis = postHasEmojis;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        if (id != post.id) return false;
+        if (message != null ? !message.equals(post.message) : post.message != null) return false;
+        if (thread != null ? !thread.equals(post.thread) : post.thread != null) return false;
+        return postHasEmojis != null ? postHasEmojis.equals(post.postHasEmojis) : post.postHasEmojis == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (thread != null ? thread.hashCode() : 0);
+        result = 31 * result + (postHasEmojis != null ? postHasEmojis.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", message='" + message + '\'' +
+                ", thread=" + thread +
+                ", postHasEmojis=" + postHasEmojis +
+                '}';
     }
 }

@@ -81,4 +81,42 @@ public class Emoji extends EntityBase implements Serializable {
     public void setUserReceivedEmojis(List<UserReceivedEmoji> userReceivedEmojis) {
         this.userReceivedEmojis = userReceivedEmojis;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Emoji emoji = (Emoji) o;
+
+        if (id != emoji.id) return false;
+        if (name != null ? !name.equals(emoji.name) : emoji.name != null) return false;
+        if (postHasEmojis != null ? !postHasEmojis.equals(emoji.postHasEmojis) : emoji.postHasEmojis != null)
+            return false;
+        if (userGivenEmojis != null ? !userGivenEmojis.equals(emoji.userGivenEmojis) : emoji.userGivenEmojis != null)
+            return false;
+        return userReceivedEmojis != null ? userReceivedEmojis.equals(emoji.userReceivedEmojis) : emoji.userReceivedEmojis == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (postHasEmojis != null ? postHasEmojis.hashCode() : 0);
+        result = 31 * result + (userGivenEmojis != null ? userGivenEmojis.hashCode() : 0);
+        result = 31 * result + (userReceivedEmojis != null ? userReceivedEmojis.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Emoji{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", postHasEmojis=" + postHasEmojis +
+                ", userGivenEmojis=" + userGivenEmojis +
+                ", userReceivedEmojis=" + userReceivedEmojis +
+                '}';
+    }
 }

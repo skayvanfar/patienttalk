@@ -68,4 +68,47 @@ public class SubForum extends EntityBase implements Serializable {
     public void setForum(Forum forum) {
         this.forum = forum;
     }
+
+    // A convenience method simplifies relationship management
+    public void addThread(Thread thread) {
+        if (thread == null)
+            throw new NullPointerException("Can't add null Thread"); // Be defensive
+        if (thread.getSubForum() != null)
+            throw new IllegalStateException("Thread is already assigned to an SubForum");
+        getThreads().add(thread);
+        thread.setSubForum(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        SubForum subForum = (SubForum) o;
+
+        if (id != subForum.id) return false;
+        if (name != null ? !name.equals(subForum.name) : subForum.name != null) return false;
+        if (threads != null ? !threads.equals(subForum.threads) : subForum.threads != null) return false;
+        return forum != null ? forum.equals(subForum.forum) : subForum.forum == null;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (threads != null ? threads.hashCode() : 0);
+        result = 31 * result + (forum != null ? forum.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "SubForum{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", threads=" + threads +
+                ", forum=" + forum +
+                '}';
+    }
 }

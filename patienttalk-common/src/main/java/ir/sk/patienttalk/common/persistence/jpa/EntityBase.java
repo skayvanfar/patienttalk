@@ -5,4 +5,10 @@ package ir.sk.patienttalk.common.persistence.jpa;
  */
 public abstract class EntityBase {
     public abstract long getId();
+
+    @Deprecated
+    protected String getInValidProperty() {
+        return null;
+    }
+
 }
