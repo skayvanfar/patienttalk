@@ -24,10 +24,10 @@ public class Thread extends EntityBase implements Serializable {
     @Column(name = "PK_THREAD_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40 , message="{Size.Thread.name.validation}")
+    @Column(name = "NAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Thread.name.validation}")
     private String name;
 
     @OneToMany(mappedBy = "thread", cascade = {CascadeType.MERGE,
@@ -37,27 +37,27 @@ public class Thread extends EntityBase implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_SUBFORUM_ID", nullable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.Thread.subForum.validation}")
     private SubForum subForum;
 
-    @Column(name = "START_DATE", nullable = false, insertable = true, updatable = true)
+    @Column(name = "START_DATE", nullable = false)
     @Basic
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date startDate;
 
     // How many time has seen
-    @Column(name = "VIEW_TIMES", nullable = false, insertable = true, updatable = true)
+    @Column(name = "VIEW_TIMES", nullable = false)
     @Basic
     private long viewTimes = 0;
 
     // How many time has replied
-    @Column(name = "REPLY_TIMES", nullable = false, insertable = true, updatable = true)
+    @Column(name = "REPLY_TIMES", nullable = false)
     @Basic
     private long replyTimes = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_USER_ID", nullable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.Thread.user.validation}")
     private User user;
 
 

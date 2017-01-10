@@ -22,10 +22,10 @@ public class Emoji extends EntityBase implements Serializable {
     @Column(name = "PK_EMOJI_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.Emoji.name.validation}")
+    @Column(name = "NAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Emoji.name.validation}")
     private String name;
 
     @OneToMany(mappedBy = "emoji", cascade = {CascadeType.MERGE,

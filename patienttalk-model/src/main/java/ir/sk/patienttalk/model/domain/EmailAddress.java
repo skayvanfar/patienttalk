@@ -14,9 +14,9 @@ import javax.validation.constraints.Size;
 @Embeddable
 public class EmailAddress {
 
-    @Column(name = "MAIL", nullable = true, insertable = true, updatable = true, length = 100)
+    @Column(name = "MAIL", length = 100)
     @Basic
-    @Size(min = 5, max = 100)
+    @Size(min = 5, max = 100, message="{Size.EmailAddress.mail.validation}")
     private String mail;
 
     public String getMail() {

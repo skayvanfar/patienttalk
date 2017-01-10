@@ -26,63 +26,63 @@ public class Profile implements Serializable {
     @Parent
     protected User user;
 
-    @Column(name = "NAME", nullable = true, insertable = true, updatable = true, length = 50)
+    @Column(name = "NAME", length = 50)
     @Basic
-    @Size(min = 5, max = 50)
+    @Size(min = 5, max = 50, message="{Size.Profile.name.message}")
     private String name;
 
-    @Column(name = "FAMILY", nullable = true, insertable = true, updatable = true, length = 80)
+    @Column(name = "FAMILY", length = 80)
     @Basic
-    @Size(min = 2, max = 80)
+    @Size(min = 2, max = 80, message="{Size.Profile.family.message}")
     private String family;
 
-    @Column(name = "GENDER_ENUM", nullable = false, insertable = true, updatable = true)
+    @Column(name = "GENDER_ENUM", nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private GenderEnum genderEnum = GenderEnum.UNKNOWN;
 
-    @Column(name = "NICK_NAME", nullable = true, insertable = true, updatable = true, length = 100)
+    @Column(name = "NICK_NAME", length = 100)
     @Basic
-    @Size(min = 2, max = 100)
+    @Size(min = 2, max = 100, message="{Size.Profile.nickName.message}")
     private String nickName;
 
-    @Column(name = "NATIONALITY_ENUM", nullable = true, insertable = true, updatable = true)
+    @Column(name = "NATIONALITY_ENUM")
     @Enumerated(EnumType.ORDINAL)
     private NationalityEnum nationalityEnum;
 
-    @Column(name = "PHONE", nullable = true, insertable = true, updatable = true, length = 20)
+    @Column(name = "PHONE", length = 20)
     @Basic
-    @Size(min = 4, max = 20)
+    @Size(min = 4, max = 20, message="{Size.Profile.phone.message}")
     private String phone;
 
-    @Size(max = 50)
-    @Column(name = "LOCATION", nullable = false, insertable = true, updatable = true, length = 50, unique = true)
+    @Size(max = 50, message="{Size.Profile.location.message}")
+    @Column(name = "LOCATION", nullable = false, length = 50, unique = true)
     @Basic
     private String location;
 
     @Embedded
     private EmailAddress emailAddress;
 
-    @Column(name = "CAUSE_OF_ILLNESS", nullable = true, insertable = true, updatable = true, length = 100)
+    @Column(name = "CAUSE_OF_ILLNESS", length = 100)
     @Basic
-    @Size(min = 5, max = 100)
+    @Size(min = 5, max = 100, message="{Size.Profile.CauseOfIllness.message}")
     private String CauseOfIllness;
 
-    @Column(name = "ILLNESS_SINCE", nullable = true, insertable = true, updatable = true, length = 100)
+    @Column(name = "ILLNESS_SINCE", length = 100)
     @Basic
-    @Size(min = 5, max = 100)
+    @Size(min = 5, max = 100, message="{Size.Profile.illnessSince.message}")
     private String illnessSince;
 
-    @Column(name = "MEMBER_DATE", nullable = false, insertable = true, updatable = true)
+    @Column(name = "MEMBER_DATE", nullable = false)
     @Basic
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date memberDate = new Date();
 
-    @Column(name = "LAST_SEEN_DATE", nullable = false, insertable = true, updatable = true)
+    @Column(name = "LAST_SEEN_DATE", nullable = false)
     @Basic
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date lastSeenDate = new Date();
 
-    @Column(name = "LAST_ACTIVITY_DATE", nullable = false, insertable = true, updatable = true)
+    @Column(name = "LAST_ACTIVITY_DATE", nullable = false)
     @Basic
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date LastActivityDate = new Date();

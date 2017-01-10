@@ -19,15 +19,15 @@ public class Trophy extends EntityBase implements Serializable {
     @Column(name = "PK_TROPHY_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.Trophy.name.validation}")
+    @Column(name = "NAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Trophy.name.validation}")
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_USER_ID", nullable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.Trophy.user.validation}")
     private User user;
 
     public Trophy() {

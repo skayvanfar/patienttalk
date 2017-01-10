@@ -54,7 +54,7 @@ public class PostHasEmoji implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_ADDED_BY_USER_ID", nullable = false, updatable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.PostHasEmoji.addedByUser.validation}")
     protected User addedByUser;
 
     @Column(name = "ADDED_ON_DATE", nullable = false, updatable = false)
@@ -65,12 +65,12 @@ public class PostHasEmoji implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "FK_POST_ID", nullable = false, insertable = false, updatable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.PostHasEmoji.post.validation}")
     private Post post;
 
     @ManyToOne
     @JoinColumn(name = "FK_EMOJI_ID", nullable = false, insertable = false, updatable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.PostHasEmoji.emoji.validation}")
     private Emoji emoji;
 
     public PostHasEmoji() {

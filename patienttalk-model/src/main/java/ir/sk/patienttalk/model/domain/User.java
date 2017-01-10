@@ -29,21 +29,21 @@ public class User extends EntityBase implements Serializable {
     @Column(name = "PK_USER_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "USERNAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.User.username.validation}")
+    @Column(name = "USERNAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.User.username.validation}")
     private String username;
 
-    @Size(max = 50)
-    @Column(name = "CODE", nullable = false, insertable = true, updatable = true, length = 50, unique = true)
+    @Size(max = 50, message="{Size.User.code.validation}")
+    @Column(name = "CODE", nullable = false, length = 50, unique = true)
     @Basic
     private String code;
 
-    @Column(name = "PASSWORD", nullable = false, insertable = true, updatable = true, length = 100)
+    @Column(name = "PASSWORD", nullable = false, length = 100)
     @Basic
-    @NotNull
-    @Size(max = 100)
+    @NotNull(message= "{NotNull.User.password.validation}")
+    @Size(max = 100, message="{Size.User.password.validation}")
     private String password;
 
     @Transient
@@ -61,7 +61,7 @@ public class User extends EntityBase implements Serializable {
  //   private Image image;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_MOOD_ID", nullable = true)
+    @JoinColumn(name = "FK_MOOD_ID")
     private Mood mood;
 
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,

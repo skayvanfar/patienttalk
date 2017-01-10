@@ -23,10 +23,10 @@ public class Post extends EntityBase implements Serializable {
     @Column(name = "PK_POST_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 500)
-    @Column(name = "MESSAGE", nullable = false, insertable = true, updatable = true, length = 500)
+    @Size(min = 5, max = 500, message="{Size.Post.name.message}")
+    @Column(name = "MESSAGE", nullable = false, length = 500)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Post.message.validation}")
     private String message;
 
 /*    @OneToMany(mappedBy = "post", cascade = {CascadeType.MERGE,
@@ -36,7 +36,7 @@ public class Post extends EntityBase implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_THREAD_ID", nullable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.Post.thread.validation}")
     private Thread thread;
 
     @OneToMany(mappedBy = "post", cascade = {CascadeType.MERGE,

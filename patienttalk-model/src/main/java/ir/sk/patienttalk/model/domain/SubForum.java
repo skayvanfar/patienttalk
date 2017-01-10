@@ -22,10 +22,10 @@ public class SubForum extends EntityBase implements Serializable {
     @Column(name = "PK_SUBFORM_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.SubForum.name.validation}")
+    @Column(name = "NAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.SubForum.name.validation}")
     private String name;
 
     @OneToMany(mappedBy = "subForum", cascade = {CascadeType.MERGE,
@@ -35,7 +35,7 @@ public class SubForum extends EntityBase implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_FORUM_ID", nullable = false)
-    @NotNull
+    @NotNull(message= "{NotNull.SubForum.forum.validation}")
     private Forum forum;
 
     public SubForum() {

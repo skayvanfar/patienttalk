@@ -22,10 +22,10 @@ public class Channel extends EntityBase implements Serializable {
     @Column(name = "PK_CHANNEL_ID", unique = true, nullable = false)
     private long id;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "NAME", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.Channel.name.validation}")
+    @Column(name = "NAME", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Channel.name.validation}")
     private String name;
 
     @OneToMany(mappedBy = "channel", cascade = {CascadeType.MERGE,
@@ -33,10 +33,10 @@ public class Channel extends EntityBase implements Serializable {
     @Fetch(FetchMode.SELECT)
     private List<Forum> forums;
 
-    @Size(min = 5, max = 40)
-    @Column(name = "THEME_COLOR", nullable = false, insertable = true, updatable = true, length = 40)
+    @Size(min = 5, max = 40, message="{Size.Channel.themeColor.validation}")
+    @Column(name = "THEME_COLOR", nullable = false, length = 40)
     @Basic
-    @NotNull
+    @NotNull(message= "{NotNull.Channel.themeColor.validation}")
     private String themeColor;
 
     public Channel() {
