@@ -2,7 +2,9 @@ package ir.sk.patienttalk.webapp.controller;
 
 import ir.sk.patienttalk.common.persistence.PersistenceException;
 import ir.sk.patienttalk.model.domain.Category;
+import ir.sk.patienttalk.model.domain.Channel;
 import ir.sk.patienttalk.webapp.service.CategoryService;
+import ir.sk.patienttalk.webapp.service.ChannelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -20,12 +22,21 @@ public class BaseController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private ChannelService channelService;
+
     Random random = new Random();
 
     @ModelAttribute("categories")
     public List<Category> getCategories() throws PersistenceException {
         List<Category> mainCategories = categoryService.getMainCategories(true);
         return mainCategories;
+    }
+
+    @ModelAttribute("channel")
+    public Channel getChannel() throws PersistenceException {
+        Channel channel = channelService.getChannel();
+        return channel;
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

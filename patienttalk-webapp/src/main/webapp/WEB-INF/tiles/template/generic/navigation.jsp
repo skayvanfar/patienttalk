@@ -20,7 +20,7 @@
                 <i class="icon-magnifying_glass"></i>
                 <ul class="pull-left">
                     <form method="get" action="<s:url value="/production/search" />">
-                        <input name="query" placeholder="جستجو کنید ...">
+                        <input type="search" name="query" placeholder="جستجو کنید ...">
                     </form>
                 </ul>
             </li>

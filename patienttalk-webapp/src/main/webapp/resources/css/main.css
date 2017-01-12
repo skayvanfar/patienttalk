@@ -275,8 +275,8 @@ fieldset {
     height: 320px;
     background-color: #924885;
     position: relative;
-    padding-top: 100px;
-    margin-top: -320px;
+    padding-top: 70px;
+    margin-top: -170px;
 }
 
 
@@ -379,3 +379,152 @@ fieldset {
     left: 3px;
     z-index: 2;
 }
+
+
+/* ///////////////////////////////// my-panel ////////////////////////////// */
+.my-panel {
+    display: table;
+    height: 100%;
+    width: 98%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: #fa9aff 2px solid;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+
+}
+
+.my-panel .my-panel-header {
+    padding: .5em .2em;
+    display: table-row;
+    background-color: #cb8ec2;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+/*.my-panel .my-panel-body > div {
+    height: 100%;
+    position: relative;
+}
+.my-panel-body > div > div {
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}*/
+
+.my-panel .my-panel-title {
+   /* margin-top: 0;
+    margin-bottom: 0;*/
+    padding: .4em 2em;
+    font-size: 16px;
+    color: inherit;
+}
+
+.my-panel .my-panel-body {
+    display: table-row;
+    padding: 15px;
+}
+
+.my-panel .my-panel-footer {
+    display: table-row;
+    padding: 10px 15px;
+    background-color: #f5a6ee;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+/* ///////////////////////////////// nodeInfo ////////////////////////////// */
+.node-info {
+    border: 1px solid #c3cbcb;
+    max-width: 100%;
+}
+.node-text {
+
+}
+.node-title {
+    font-weight: bold;
+    font-size: 12pt;
+}
+.node-stats {
+    padding: 0;
+    display: inline-block;
+    overflow: visible;
+}
+
+.node-stats dl {
+    float: right;
+    display: block;
+    margin-left: 5px;
+}
+
+.pairs-inline dl,
+.pairs-inline dt,
+.pairs-inline dd
+{
+    display: inline;
+}
+
+.pairs-inline dt {
+    color: rgb(150,150,150);
+}
+.pairs-inline dd {
+    font-weight: bold;
+}
+
+.primary-content a {
+    color: #176093;
+}
+
+
+/**/
+.node .node-last-post {
+    border: 1px solid #ddd;
+    position: relative;
+    top: 50%;
+    transform: translateY(+30%);
+}
+
+.secondary-content a {
+    color: #176093;
+    float: right;
+}
+
+.node .node-last-post .last-thread-title
+{
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+.node .node-last-post .last-thread-meta
+{
+    display: block;
+}
+
+.node .node-last-post .last-thread-title {
+    padding-left: 3px;
+}
+
+@media (min-width:900px) {
+    .node .node-last-post .last-thread-meta {
+        padding-left: 29px;
+    }
+
+    .node .node-last-post .last-thread-title {
+        padding-left: 3px;
+    }
+}
+
+abbr, acronym {
+    border: 0;
+    font-variant: normal;
+    text-decoration: none;
+}
+body .muted, body a.muted, body .muted a { color: rgb(150,150,150); }

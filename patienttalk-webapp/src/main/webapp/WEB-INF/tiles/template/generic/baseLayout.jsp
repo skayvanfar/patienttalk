@@ -37,6 +37,9 @@
 
     <link rel="stylesheet" href="<s:url value="/resources/css/normalize.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/css/foundation.css" />"/>
+<%--
+    <link rel="stylesheet" href="<s:url value="/resources/zurb-foundation-6.3.0/css/foundation.min.css" />"/>
+--%>
     <link rel="stylesheet" href="<s:url value="/resources/css/main.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/css/icon.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/slick/slick.css" />"/>
@@ -63,6 +66,9 @@
     <script src="<s:url value="/resources/js/image_gallery/jquery.magnific-popup.min.js" />"></script>
     <script src="<s:url value="/resources/js/foundation.min.js" />"></script>
     <script src="<s:url value="/resources/js/foundation.equalizer.js" />"></script>
+<%--
+    <script src="<s:url value="/resources/zurb-foundation-6.3.0/js/vendor/foundation.min.js" />"></script>
+--%>
     <!--[if lt IE 9]>
     <script src='<s:url value="/resources/js/html5shiv.min.js" />'></script>
     <script src='<s:url value="/resources/js/respond.min.js" />'></script>
@@ -82,11 +88,17 @@
         <tiles:insertAttribute name="navigation"/>
     </nav>
     <section id="s-content" data-magellan-destination="s-content">
-        <section class="production-box" data-equalizer-watch>
-            <div class="production-header">
+        <div class="my-panel">
+            <div class="my-panel-header">
+                <h3 class="my-panel-title">وزوز گوش</h3>
+            </div>
+            <div class="my-panel-body">
                 <tiles:insertAttribute name="content"/>
             </div>
-        </section>
+            <div class="my-panel-footer">
+                <h3 class="my-panel-title">وزوز گوش</h3>
+            </div>
+        </div>
     </section>
 </section>
 <footer id="s-footer" data-magellan-destination="s-footer">

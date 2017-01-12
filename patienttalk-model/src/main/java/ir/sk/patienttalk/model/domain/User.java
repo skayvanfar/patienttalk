@@ -84,11 +84,6 @@ public class User extends EntityBase implements Serializable {
     @Fetch(FetchMode.SELECT)
     private List<Trophy> trophies;
 
-    @OneToMany(mappedBy = "watchedUser", cascade = {CascadeType.MERGE,
-            CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
-    @Fetch(FetchMode.SELECT)
-    private List<Forum> watchedForums;
-
     @OneToMany(mappedBy = "user", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
@@ -184,14 +179,6 @@ public class User extends EntityBase implements Serializable {
         this.trophies = trophies;
     }
 
-    public List<Forum> getWatchedForums() {
-        return watchedForums;
-    }
-
-    public void setWatchedForums(List<Forum> watchedForums) {
-        this.watchedForums = watchedForums;
-    }
-
     public List<UserWatchedThread> getUserWatchedThreads() {
         return userWatchedThreads;
     }
@@ -237,8 +224,6 @@ public class User extends EntityBase implements Serializable {
         if (userReceivedEmojis != null ? !userReceivedEmojis.equals(user.userReceivedEmojis) : user.userReceivedEmojis != null)
             return false;
         if (trophies != null ? !trophies.equals(user.trophies) : user.trophies != null) return false;
-        if (watchedForums != null ? !watchedForums.equals(user.watchedForums) : user.watchedForums != null)
-            return false;
         return userWatchedThreads != null ? userWatchedThreads.equals(user.userWatchedThreads) : user.userWatchedThreads == null;
 
     }
@@ -256,7 +241,6 @@ public class User extends EntityBase implements Serializable {
         result = 31 * result + (userGivenEmojis != null ? userGivenEmojis.hashCode() : 0);
         result = 31 * result + (userReceivedEmojis != null ? userReceivedEmojis.hashCode() : 0);
         result = 31 * result + (trophies != null ? trophies.hashCode() : 0);
-        result = 31 * result + (watchedForums != null ? watchedForums.hashCode() : 0);
         result = 31 * result + (userWatchedThreads != null ? userWatchedThreads.hashCode() : 0);
         return result;
     }
@@ -275,7 +259,6 @@ public class User extends EntityBase implements Serializable {
                 ", userGivenEmojis=" + userGivenEmojis +
                 ", userReceivedEmojis=" + userReceivedEmojis +
                 ", trophies=" + trophies +
-                ", watchedForums=" + watchedForums +
                 ", userWatchedThreads=" + userWatchedThreads +
                 '}';
     }

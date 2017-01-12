@@ -39,11 +39,6 @@ public class Forum extends EntityBase implements Serializable {
     @NotNull(message= "{NotNull.Forum.channel.validation}")
     private Channel channel;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "FK_WATCHED_USER_ID", nullable = false)
-    @NotNull(message= "{NotNull.Forum.watchedUser.validation}")
-    private User watchedUser;
-
     public Forum() {
     }
 
@@ -75,14 +70,6 @@ public class Forum extends EntityBase implements Serializable {
         this.channel = channel;
     }
 
-    public User getWatchedUser() {
-        return watchedUser;
-    }
-
-    public void setWatchedUser(User watchedUser) {
-        this.watchedUser = watchedUser;
-    }
-
     // A convenience method simplifies relationship management
     public void addSubForum(SubForum subForum) {
         if (subForum == null)
@@ -103,8 +90,7 @@ public class Forum extends EntityBase implements Serializable {
         if (id != forum.id) return false;
         if (name != null ? !name.equals(forum.name) : forum.name != null) return false;
         if (subForums != null ? !subForums.equals(forum.subForums) : forum.subForums != null) return false;
-        if (channel != null ? !channel.equals(forum.channel) : forum.channel != null) return false;
-        return watchedUser != null ? watchedUser.equals(forum.watchedUser) : forum.watchedUser == null;
+        return channel != null ? channel.equals(forum.channel) : forum.channel == null;
 
     }
 
@@ -114,7 +100,6 @@ public class Forum extends EntityBase implements Serializable {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (subForums != null ? subForums.hashCode() : 0);
         result = 31 * result + (channel != null ? channel.hashCode() : 0);
-        result = 31 * result + (watchedUser != null ? watchedUser.hashCode() : 0);
         return result;
     }
 
@@ -125,7 +110,6 @@ public class Forum extends EntityBase implements Serializable {
                 ", name='" + name + '\'' +
                 ", subForums=" + subForums +
                 ", channel=" + channel +
-                ", watchedUser=" + watchedUser +
                 '}';
     }
 }
