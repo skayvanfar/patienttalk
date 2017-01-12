@@ -24,7 +24,7 @@ import java.util.Map;
  * @author <a href="kayvanfar.sj@gmail.com">Saeed Kayvanfar</a> on 1/6/2017.
  */
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
 
     @Autowired
     private UserService userService;

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,17 +32,17 @@ public class Emoji extends EntityBase implements Serializable {
     @OneToMany(mappedBy = "emoji", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<PostHasEmoji> postHasEmojis;
+    private List<PostHasEmoji> postHasEmojis = new ArrayList<>();
 
     @OneToMany(mappedBy = "emoji", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<UserGivenEmoji> userGivenEmojis;
+    private List<UserGivenEmoji> userGivenEmojis = new ArrayList<>();
 
     @OneToMany(mappedBy = "emoji", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<UserReceivedEmoji> userReceivedEmojis;
+    private List<UserReceivedEmoji> userReceivedEmojis = new ArrayList<>();
 
     public Emoji() {
     }

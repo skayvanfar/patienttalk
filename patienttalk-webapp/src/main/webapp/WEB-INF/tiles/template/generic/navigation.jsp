@@ -31,11 +31,9 @@
                     <c:if test="${not empty c.children}">
                         <ul>
                             <c:forEach items="${c.children}" var="ch" varStatus="chi">
-                                <c:if test="${ch.count > 0}">
-                                    <li>
-                                        <a href="<s:url value="/production/search?query=&cat=${ch.title}"/>">${ch.title}</a>
-                                    </li>
-                                </c:if>
+                                <li>
+                                    <a href="<s:url value="/production/search?query=&cat=${ch.title}"/>">${ch.title}</a>
+                                </li>
                             </c:forEach>
                         </ul>
                     </c:if>

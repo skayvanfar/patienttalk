@@ -3,12 +3,14 @@ package ir.sk.patienttalk.model.domain;
 import ir.sk.patienttalk.common.persistence.jpa.EntityBase;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.Immutable;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +19,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "TBL_PT_THREAD", schema = "", catalog = "PATIENTTALK")
+@Immutable // Declares class immutable
 public class Thread extends EntityBase implements Serializable {
 
     @Id
@@ -33,7 +36,7 @@ public class Thread extends EntityBase implements Serializable {
     @OneToMany(mappedBy = "thread", cascade = {CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @Fetch(FetchMode.SELECT)
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FK_SUBFORUM_ID", nullable = false)

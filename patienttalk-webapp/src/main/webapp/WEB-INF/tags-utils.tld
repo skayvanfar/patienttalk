@@ -11,5 +11,8 @@
         <name>top-menu</name>
         <path>/WEB-INF/tags/utils/top-menu.tag</path>
     </tag-file>
-
+    <tag-file>
+        <name>sub-forum</name>
+        <path>/WEB-INF/tags/utils/sub-forum.tag</path>
+    </tag-file>
 </taglib>

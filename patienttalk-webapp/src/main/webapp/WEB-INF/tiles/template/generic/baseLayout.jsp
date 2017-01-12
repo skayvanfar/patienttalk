@@ -24,6 +24,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Patient Talk Forum">
+    <meta name="keywords" content="Patient, Talk, Forum, Tinnitus">
+    <meta name="author" content="Saeed Kayvanfar">
     <title><tiles:insertAttribute name="title"/></title>
 
     <script src="<c:url value="/resources/js/jquery-3.1.1.min.js" />"></script>
@@ -71,20 +74,24 @@
     data-options="throttle_delay:0;offset_by_height:false;">
     <tiles:insertAttribute name="top"/>
 </dl>
-<div id="s-wrapper" data-magellan-destination="s-wrapper">
-    <div id="s-header">
+<section id="s-wrapper" data-magellan-destination="s-wrapper">
+    <header id="s-header">
         <tiles:insertAttribute name="header"/>
-    </div>
-    <div id="s-navigation">
+    </header>
+    <nav id="s-navigation">
         <tiles:insertAttribute name="navigation"/>
-    </div>
-    <div id="s-content" data-magellan-destination="s-content">
-        <tiles:insertAttribute name="content"/>
-    </div>
-</div>
-<div id="s-footer" data-magellan-destination="s-footer">
+    </nav>
+    <section id="s-content" data-magellan-destination="s-content">
+        <section class="production-box" data-equalizer-watch>
+            <div class="production-header">
+                <tiles:insertAttribute name="content"/>
+            </div>
+        </section>
+    </section>
+</section>
+<footer id="s-footer" data-magellan-destination="s-footer">
     <tiles:insertAttribute name="footer"/>
-</div>
+</footer>
 <script>
     $(document).foundation();
 </script>
