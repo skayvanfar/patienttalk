@@ -14,7 +14,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 <%--@elvariable id="signupData" type="ir.sk.patienttalk.web.logic.data.SignupData"--%>
-<dl class="tabs" data-tab>
+<dl class="tabs" data-tab style="background-color: #9c9c9c">
     <dd <c:if test="${!signupData.hasError and !signupData.succeed}"> class="active" </c:if> >
         <a href="#login">
             <i class="icon-login"></i> ورود
@@ -31,7 +31,7 @@
         <i class="icon-close"></i>
     </a>
 </dl>
-<div class="tabs-content">
+<div class="tabs-content" style="background-color: #5F5F5F">
     <div class="content <c:if test="${!signupData.hasError and !signupData.succeed}"> active </c:if>"
          id="login">
         <jsp:include page="../login.jsp"/>

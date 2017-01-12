@@ -18,9 +18,6 @@
                 <u:forum data="${forum}"/>
             </c:forEach>
         </div>
-        <div class="my-panel-footer">
-            <h3 class="my-panel-title">انجمن ها</h3>
-        </div>
     </div>
 </div>
 <aside class="column small-4 medium-4">
@@ -35,9 +32,6 @@
             <p>فعلا</p>
             <p>فعلا</p>
         </div>
-        <div class="my-panel-footer">
-            <h3 class="my-panel-title">وزوز گوش</h3>
-        </div>
     </div>
     <div class="my-panel">
         <div class="my-panel-header">
@@ -49,9 +43,6 @@
             <p>فعلا</p>
             <p>فعلا</p>
             <p>فعلا</p>
-        </div>
-        <div class="my-panel-footer">
-            <h3 class="my-panel-title">وزوز گوش</h3>
         </div>
     </div>
 </aside>

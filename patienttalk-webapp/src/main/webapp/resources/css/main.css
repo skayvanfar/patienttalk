@@ -48,7 +48,7 @@ fieldset {
 
 #s-header {
     height: 110px;
-    background: #ffffff;
+    background: rgba(203, 230, 243, 1);/*#ffffff*/
     padding-top: 20px;
 }
 
@@ -155,8 +155,8 @@ fieldset {
 
 #s-navigation {
     position: relative;
-    border-top: solid #c8a3c2 1px;
-    background: #f1eaf0;
+    border-top: solid #95b4c8 1px;
+    background: #e2f1ee;
     border-bottom: solid #cfcfcf 1px;
     /*height: 60px;*/
 }
@@ -176,18 +176,18 @@ fieldset {
 }
 
 #s-navigation nav ul li:hover {
-    background: #cc99cc;
+    background: #5bc3cc;
 }
 
 #s-navigation nav ul li > ul {
     display: none;
-    background: #cc99cc;
+    background: #5bc3cc;
     position: absolute;
     line-height: 55px;
     right: 0;
     left: 0;
     z-index: 99;
-    border-bottom: solid 5px #924885;
+    border-bottom: solid 5px #437492;
     text-align: center;
 }
 
@@ -200,7 +200,7 @@ fieldset {
 }
 
 #s-navigation nav ul li ul li:hover {
-    background: #924885;
+    background: #437492;
 }
 
 #s-navigation nav ul li > ul.pull-left {
@@ -273,7 +273,7 @@ fieldset {
 #s-footer {
     width: 100%;
     height: 320px;
-    background-color: #924885;
+    background-color: #437492;
     position: relative;
     padding-top: 70px;
     margin-top: -170px;
@@ -360,7 +360,7 @@ fieldset {
 }
 
 .basket-icon-text {
-    color: #924885;
+    color: #437492;
 }
 
 .count-on-basket {
@@ -390,7 +390,7 @@ fieldset {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #fff;
-    border: #fa9aff 2px solid;
+    border: #87e0ff 2px solid;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 
@@ -399,7 +399,7 @@ fieldset {
 .my-panel .my-panel-header {
     padding: .5em .2em;
     display: table-row;
-    background-color: #cb8ec2;
+    background-color: rgba(115, 177, 204, 0.8);
     border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -434,7 +434,7 @@ fieldset {
 .my-panel .my-panel-footer {
     display: table-row;
     padding: 10px 15px;
-    background-color: #f5a6ee;
+    background-color: rgba(115, 177, 204, 0.8);
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
 }

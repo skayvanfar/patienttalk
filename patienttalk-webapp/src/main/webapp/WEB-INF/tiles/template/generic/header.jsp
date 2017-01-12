@@ -22,6 +22,7 @@
         <img src="<s:url value="/resources/img/logo.png"  />" id="s-logo">
     </a>
 
+
     <div class="left" id="s-header-nav">
         <%-- todo --%>
         <ul>
@@ -59,6 +60,11 @@
                     ${basketCount}
                 </a>
             </li>--%>
+        </ul>
+        <ul>
+            <li><a class="" href="<s:url value="/manage/users"/>">نامه ها <i class="icon icon-mail"></i></a></li>
+            <li><a class="" href="<s:url value="/manage/users"/>">اعلان ها <i class="icon icon-alarm"></i></a></li>
+            <li><a class="" href="<s:url value="/manage/users"/>">تنظیمات <i class="icon icon-star"></i></a></li>
         </ul>
     </div>
     <sec:authorize access="isAnonymous()">
