@@ -27,7 +27,7 @@
         <%-- todo --%>
         <ul>
             <sec:authorize access="isAnonymous()">
-                <li><a href="<s:url value="/login" />" id="s-login-top">ورود</a></li>
+                <li><a href="<s:url value="/login" />" id="s-login-top"><span style="vertical-align: super">ورود</span><i class="material-icons md-dark" style="color: #2ba6cb">input</i></a></li>
             </sec:authorize>
 
             <sec:authorize access="isAuthenticated() and hasRole('SUPER_ADMIN')">
@@ -37,8 +37,8 @@
             <sec:authorize access="isAuthenticated()">
                 <sec:authentication property="principal.user" var="user"/>
                 <li>
-                    ${user.profile.fullName} &nbsp;
-                    <a href="<s:url value="/logout/p" />">(خروج)<i class="icon icon-logout"></i></a>
+                    <span style="vertical-align: super">${user.profile.fullName} &nbsp;</span>
+                    <a href="<s:url value="/logout/p" />"><span style="vertical-align: super">(خروج)</span><i class="material-icons md-dark" style="color: #2ba6cb">power_settings_new</i></a>
                 </li>
             </sec:authorize>
             <%--<c:if test="${not empty basket.items}">
@@ -62,9 +62,9 @@
             </li>--%>
         </ul>
         <ul>
-            <li><a class="" href="<s:url value="/manage/users"/>">نامه ها <i class="icon icon-mail"></i></a></li>
-            <li><a class="" href="<s:url value="/manage/users"/>">اعلان ها <i class="icon icon-alarm"></i></a></li>
-            <li><a class="" href="<s:url value="/manage/users"/>">تنظیمات <i class="icon icon-star"></i></a></li>
+            <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">نامه ها</span><i class="material-icons md-dark" style="color: #2ba6cb">inbox</i></a></li>
+            <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">اعلان ها</span><i class="material-icons md-dark" style="color: #2ba6cb">add_alert</i></a></li>
+            <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">تنظیمات</span><i class="material-icons md-dark" style="color: #2ba6cb">settings</i></a></li>
         </ul>
     </div>
     <sec:authorize access="isAnonymous()">

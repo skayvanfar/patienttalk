@@ -42,6 +42,7 @@
 --%>
     <link rel="stylesheet" href="<s:url value="/resources/css/main.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/css/icon.css" />"/>
+    <link rel="stylesheet" href="<s:url value="/resources/font/material-design-icons/material-icons.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/slick/slick.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/css/top.css" />"/>
     <link rel="stylesheet" href="<s:url value="/resources/css/recents.css" />"/>
@@ -90,13 +91,13 @@
     <section id="s-content" data-magellan-destination="s-content">
         <div class="my-panel">
             <div class="my-panel-header">
-                <h3 class="my-panel-title">وزوز گوش</h3>
+                <h3 class="my-panel-title"></h3>
             </div>
             <div class="my-panel-body">
                 <tiles:insertAttribute name="content"/>
             </div>
             <div class="my-panel-footer">
-                <h3 class="my-panel-title">وزوز گوش</h3>
+                <h3 class="my-panel-title"></h3>
             </div>
         </div>
     </section>
