@@ -35,7 +35,7 @@
     <c:if test="${not empty errors}">
     <div data-tooltip aria-haspopup="true" class="errors has-tip tip-right radius" title='${errors}'></c:if>
         <c:if test="${not empty label}">
-            <label class="radius secondary label" for="${id}">${label}</label>
+            <label class="radius primary label" for="${id}">${label}</label>
         </c:if>
         <sf:password path="${path}" id="${id}" placeholder="${placeholder}" maxlength="${maxlength}"
                      cssStyle="${cssStyle}" cssClass="control ${cssClass}"/>

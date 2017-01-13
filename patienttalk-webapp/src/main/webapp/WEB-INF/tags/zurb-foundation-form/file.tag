@@ -31,7 +31,7 @@
 <div class="${c}">
     <div class="progress">
         <c:if test="${not empty label}">
-            <label class="radius secondary label" for="${id}">${label}</label>
+            <label class="radius primary label" for="${id}">${label}</label>
         </c:if>
         <c:if test="${not empty errors}">
         <div data-tooltip aria-haspopup="true" class="errors has-tip tip-right radius" title='${errors}'></c:if>

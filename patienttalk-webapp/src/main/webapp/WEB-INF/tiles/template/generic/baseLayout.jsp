@@ -88,7 +88,7 @@
     <nav id="s-navigation">
         <tiles:insertAttribute name="navigation"/>
     </nav>
-    <section id="s-content" data-magellan-destination="s-content">
+    <section id="s-content" data-magellan-destination="s-content" class="row">
         <div class="my-panel">
             <div class="my-panel-header">
                 <h3 class="my-panel-title"></h3>

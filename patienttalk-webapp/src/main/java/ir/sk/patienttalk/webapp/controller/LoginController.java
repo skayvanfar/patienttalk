@@ -6,6 +6,9 @@ import ir.sk.patienttalk.webapp.dto.SignupData;
 import ir.sk.patienttalk.webapp.service.UserService;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -44,8 +48,8 @@ public class LoginController extends BaseController {
         return defaultHomeModel(model, new SignupData(), new LoginData());
     }
 
-    @RequestMapping(value = {"/login", "/login/"})
-    public String login(HttpServletRequest request, Map<String, Object> model) throws PersistenceException {
+    @RequestMapping(value = {"/login", "/login/p"})
+    public String login(HttpServletRequest request, Map<String, Object> model, @Valid LoginData data) throws PersistenceException {
         String redirect = request.getParameter("redirect");
         if (redirect != null)
             return "redirect:/redirectLogin?redirect=" + redirect;
@@ -109,12 +113,22 @@ public class LoginController extends BaseController {
     @RequestMapping(value="/loginfailed", method = RequestMethod.GET)
     public String loginerror(Model model) {
         model.addAttribute("error", "true");
-        return "home";
+        return "/home";
     }
 
-    @RequestMapping(value="/logout", method = RequestMethod.GET)
-    public String logout(Model model) {
-        return "home";
+    @RequestMapping(value="/logout/p", method = RequestMethod.GET)
+    public String logout(HttpServletRequest request, HttpServletResponse response, Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null){
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/home";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
+
+      //  return "home";
     }
 
+    public static String anonymousHome(Map<String, Object> model) throws PersistenceException {
+        return defaultHomeModel(model,
+                new SignupData(), new LoginData());
+    }
 }

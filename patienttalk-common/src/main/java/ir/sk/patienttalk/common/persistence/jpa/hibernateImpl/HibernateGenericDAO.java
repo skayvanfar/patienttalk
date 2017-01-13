@@ -2,13 +2,14 @@ package ir.sk.patienttalk.common.persistence.jpa.hibernateImpl;
 
 
 import ir.sk.patienttalk.common.persistence.jpa.GenericDAO;
+import ir.sk.patienttalk.common.persistence.jpa.PagingDataList;
+import ir.sk.patienttalk.common.persistence.jpa.PersistenceUtil;
 import org.hibernate.*;
-import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.*;
 //import org.slf4j.Logger;
 //import org.slf4j.LoggerFactory;
+import org.hibernate.internal.CriteriaImpl;
+import org.hibernate.transform.ResultTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.orm.ObjectRetrievalFailureException;
@@ -35,7 +36,7 @@ import java.util.*;
  * @author <a href="kayvanfar.sj@gmail.com">Saeed Kayvanfar</a> on 1/6/2017
  *         Updated by jgarcia: update hibernate3 to hibernate4
  */
-public class HibernateGenericDAO<T, PK extends Serializable> implements GenericDAO<T, PK> {
+public class HibernateGenericDAO<T, PK extends Serializable> extends PersistenceUtil implements GenericDAO<T, PK> {
 
     /**
      * Log variable for all child classes. Uses LogFactory.getLog(getClass()) from Commons Logging

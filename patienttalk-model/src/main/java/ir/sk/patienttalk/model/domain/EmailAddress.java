@@ -6,13 +6,14 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /**
  * @author <a href="kayvanfar.sj@gmail.com">Saeed Kayvanfar</a> on 1/9/2017.
  */
 @Value
 @Embeddable
-public class EmailAddress {
+public class EmailAddress implements Serializable {
 
     @Column(name = "MAIL", length = 100)
     @Basic

@@ -39,7 +39,7 @@
     <c:if test="${not empty errors}">
     <div data-tooltip aria-haspopup="true" class="errors has-tip s tip-right radius" title='${errors}'></c:if>
         <c:if test="${not empty label}">
-            <label class="radius secondary label" for="${id}">${label}</label>
+            <label class="radius primary label" for="${id}">${label}</label>
         </c:if>
         <c:forEach var="e" items="${enums}">
         <span style="white-space:nowrap; vertical-align: middle;">

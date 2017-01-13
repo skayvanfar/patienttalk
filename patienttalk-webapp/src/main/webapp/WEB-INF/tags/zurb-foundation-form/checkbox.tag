@@ -35,7 +35,7 @@
     <c:if test="${not empty errors}">
     <div data-tooltip aria-haspopup="true" class="errors has-tip s tip-right radius" title='${errors}'></c:if>
         <c:if test="${not empty label}">
-            <label class="radius secondary label" for="${id}">${label}</label>
+            <label class="radius primary label" for="${id}">${label}</label>
         </c:if>
         <sf:checkbox path="${path}" value="false" cssClass="control ${cssClass}" label="${label}"/>
         <c:if test="${empty newLine or newLine}"><br/></c:if>

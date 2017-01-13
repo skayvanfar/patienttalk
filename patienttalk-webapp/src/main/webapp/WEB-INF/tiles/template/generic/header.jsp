@@ -25,12 +25,12 @@
 
     <div class="left" id="s-header-nav">
         <%-- todo --%>
-        <ul>
+        <ul style="margin-bottom: .9rem">
             <sec:authorize access="isAnonymous()">
                 <li><a href="<s:url value="/login" />" id="s-login-top"><span style="vertical-align: super">ورود</span><i class="material-icons md-dark" style="color: #2ba6cb">input</i></a></li>
             </sec:authorize>
 
-            <sec:authorize access="isAuthenticated() and hasRole('SUPER_ADMIN')">
+            <sec:authorize access="isAuthenticated() and hasAuthority('SUPER_ADMIN')">
                 <li><a href="<s:url value="/manage/users"/>">کاربران<i class="icon icon-users"></i></a></li>
                 <li><a href="<s:url value="/manage/production/new"/>">محصول جدید<i class="icon icon-plus"></i></a></li>
             </sec:authorize>
@@ -61,11 +61,13 @@
                 </a>
             </li>--%>
         </ul>
-        <ul>
+    <sec:authorize access="isAuthenticated() and hasAuthority('SUPER_ADMIN')">
+        <ul style="margin-bottom: .9rem">
             <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">نامه ها</span><i class="material-icons md-dark" style="color: #2ba6cb">inbox</i></a></li>
             <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">اعلان ها</span><i class="material-icons md-dark" style="color: #2ba6cb">add_alert</i></a></li>
             <li><a class="" href="<s:url value="/manage/users"/>"><span style="vertical-align: super">تنظیمات</span><i class="material-icons md-dark" style="color: #2ba6cb">settings</i></a></li>
         </ul>
+    </sec:authorize>
     </div>
     <sec:authorize access="isAnonymous()">
         <div id="s-header-tabs"

@@ -13,7 +13,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 
 
-<div class="row">
+<div class="row navigation">
     <nav>
         <ul>
             <li class="left search">

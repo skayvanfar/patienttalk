@@ -12,11 +12,11 @@
 <%@ taglib prefix="f" uri="http://sk.ir/patienttalk/zurb-foundation-form" %>
 <%@ taglib prefix="filter" uri="http://sk.ir/common/tags/security-filter" %>
 
-<%@ attribute name="data" type="ir.sk.patienttalk.model.domain.SubForum" required="true" rtexprvalue="true" %>
+<%@ attribute name="data" type="ir.sk.patienttalk.model.domain.Thread" required="true" rtexprvalue="true" %>
 
 <article class="row node node-info forum-node-info">
     <span class="column small-1 medium-1 node-pic">
-        <i class="material-icons md-dark" style="font-size:50px; color: #2ba6cb">forum</i>
+        <i class="material-icons md-dark" style="font-size:50px; color: #2ba6cb">message</i>
     </span>
     <div class="column small-5 medium-5 primary-content">
         <div class="node-text">
@@ -24,7 +24,7 @@
                 <a href="<s:url value="/forum/threads" />" data-description="#nodeDescription-4">${data.name}</a>
             </h3>
             <div class="node-stats pairs-inline">
-                <dl><dt>نخ ها:</dt> <dd>${data.threads.size()}</dd></dl>
+                <dl><dt>پیام ها ها:</dt> <dd>${data.posts.size()}</dd></dl>
                 <dl><dt>پیام ها:</dt> <dd>100</dd></dl>
             </div>
         </div>
