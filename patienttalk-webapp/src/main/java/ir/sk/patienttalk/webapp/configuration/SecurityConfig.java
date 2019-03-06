@@ -56,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
      //   http.exceptionHandling().authenticationEntryPoint(loginUrlAuthenticationEntryPoint());
 
-   //     http.addFilterBefore(authenticationFilter(), PatientTalkUsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(authenticationFilter(), PatientTalkUsernamePasswordAuthenticationFilter.class);
 
         /*http.logout().invalidateHttpSession(true).logoutUrl("/logout/p").deleteCookies("JSESSIONID")
                 .logoutSuccessUrl("/home");*/
@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login/p")
+                .loginPage("/login")
                 .permitAll()
                 .and()
                 .logout().invalidateHttpSession(true).logoutUrl("/logout/p").deleteCookies("JSESSIONID")
@@ -89,9 +89,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrfTokenRepository(csrfTokenRepository());
     }
 
-    /*private PatientTalkUsernamePasswordAuthenticationFilter authenticationFilter() throws Exception {
+    private PatientTalkUsernamePasswordAuthenticationFilter authenticationFilter() throws Exception {
         PatientTalkUsernamePasswordAuthenticationFilter authFilter = new PatientTalkUsernamePasswordAuthenticationFilter();
-     //   authFilter.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login","POST"));
+        authFilter.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/login","POST"));
         authFilter.setAuthenticationManager(authenticationManagerBean());
         authFilter.setAuthenticationSuccessHandler(new PatientTalkSimpleUrlAuthenticationSuccessHandler());
         authFilter.setAuthenticationFailureHandler(new SimpleUrlAuthenticationFailureHandler("/login"));
@@ -99,7 +99,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         authFilter.setPasswordParameter("password");
         authFilter.setFilterProcessesUrl("/login/p");
         return authFilter;
-    }*/
+    }
 
     /*@Bean
     public AuthenticationEntryPoint loginUrlAuthenticationEntryPoint() {

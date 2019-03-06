@@ -40,7 +40,7 @@ public class LoginController extends BaseController {
         binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
     }
 
-    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/home"})
     public String home(HttpServletRequest request, Map<String, Object> model) throws PersistenceException {
         String redirect = request.getParameter("redirect");
         if (redirect != null)
@@ -48,8 +48,8 @@ public class LoginController extends BaseController {
         return defaultHomeModel(model, new SignupData(), new LoginData());
     }
 
-    @RequestMapping(value = {"/login", "/login/p"})
-    public String login(HttpServletRequest request, Map<String, Object> model, @Valid LoginData data) throws PersistenceException {
+    @RequestMapping(value = {"/login", "/login/"})
+    public String login(HttpServletRequest request, Map<String, Object> model) throws PersistenceException {
         String redirect = request.getParameter("redirect");
         if (redirect != null)
             return "redirect:/redirectLogin?redirect=" + redirect;
