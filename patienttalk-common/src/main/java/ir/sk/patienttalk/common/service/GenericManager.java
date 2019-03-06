@@ -1,6 +1,8 @@
 package ir.sk.patienttalk.common.service;
 
 import ir.sk.patienttalk.common.persistence.PersistenceException;
+import ir.sk.patienttalk.common.persistence.SearchData;
+import ir.sk.patienttalk.common.persistence.jpa.PagingDataList;
 
 import java.io.Serializable;
 import java.util.List;
@@ -165,4 +167,7 @@ public interface GenericManager<T, PK extends Serializable> {
      * @return - true if it exists, false if it doesn't
      */
     boolean exists(PK id);
+
+
+    PagingDataList<T> search(SearchData searchData) throws PersistenceException;
 }

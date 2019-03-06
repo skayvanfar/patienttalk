@@ -1,6 +1,9 @@
 package ir.sk.patienttalk.common.service.impl;
 
+import ir.sk.patienttalk.common.persistence.PersistenceException;
+import ir.sk.patienttalk.common.persistence.SearchData;
 import ir.sk.patienttalk.common.persistence.jpa.GenericDAO;
+import ir.sk.patienttalk.common.persistence.jpa.PagingDataList;
 import ir.sk.patienttalk.common.service.GenericManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -377,5 +380,10 @@ public class GenericManagerImpl<T, PK extends Serializable> implements GenericMa
      */
     public boolean exists(PK id) {
         return dao.exists(id);
+    }
+
+    @Override
+    public PagingDataList<T> search(SearchData searchData) throws PersistenceException {
+        return dao.search(searchData);
     }
 }

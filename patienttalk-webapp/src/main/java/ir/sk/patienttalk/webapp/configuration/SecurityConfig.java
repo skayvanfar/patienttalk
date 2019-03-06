@@ -75,6 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/exception**").permitAll()
                 .antMatchers("/forum/**").permitAll()
                 .antMatchers("/manage(/**)?").hasAuthority("SUPER_ADMIN")
+                .antMatchers("/users(/**)?").hasAuthority("SUPER_ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()

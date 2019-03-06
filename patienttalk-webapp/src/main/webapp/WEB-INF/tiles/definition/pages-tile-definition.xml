@@ -22,4 +22,11 @@
         <put-attribute name="content" value="/WEB-INF/view/forum/subforum.jsp" />
     </definition>
 
+    <definition name="user/search" extends="baseLayout">
+        <put-attribute name="title" value="Threads" />
+        <put-attribute name="heading" value="Welcome to Patient Talk" />
+        <put-attribute name="tagline" value="The amazing Patient Talk Forum" />
+        <put-attribute name="content" value="/WEB-INF/view/user/search.jsp" />
+    </definition>
+
 </tiles-definitions>

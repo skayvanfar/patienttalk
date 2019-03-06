@@ -1,6 +1,8 @@
 package ir.sk.patienttalk.common.persistence.jpa.hibernateImpl;
 
 
+import ir.sk.patienttalk.common.persistence.PersistenceException;
+import ir.sk.patienttalk.common.persistence.SearchData;
 import ir.sk.patienttalk.common.persistence.jpa.GenericDAO;
 import ir.sk.patienttalk.common.persistence.jpa.PagingDataList;
 import ir.sk.patienttalk.common.persistence.jpa.PersistenceUtil;
@@ -483,5 +485,18 @@ public class HibernateGenericDAO<T, PK extends Serializable> extends Persistence
         IdentifierLoadAccess byId = getSession().byId(persistentClass);
         T entity = (T) byId.load(id);
         return entity != null;
+    }
+
+    public PagingDataList<T> search(SearchData searchData) throws PersistenceException {
+        Map<String, Object> properties = searchData.getSearchParams();
+        Criteria criteria = getSession().createCriteria(persistentClass);
+        boolean a = false;
+   ////     if (a)
+        for (Map.Entry<String, Object> propertyEntry : properties.entrySet()) {
+            if (propertyEntry.getValue() != null && !propertyEntry.getValue().equals(""))
+                criteria.add(Restrictions.like(propertyEntry.getKey(), propertyEntry.getValue()));
+        }
+
+        return paging(criteria, searchData.getPage(), searchData.getPageSize(), Order.asc("id"));
     }
 }

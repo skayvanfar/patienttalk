@@ -31,7 +31,7 @@
             </sec:authorize>
 
             <sec:authorize access="isAuthenticated() and hasAuthority('SUPER_ADMIN')">
-                <li><a href="<s:url value="/manage/users"/>">کاربران<i class="icon icon-users"></i></a></li>
+                <li><a href="<s:url value="/users/search"/>">کاربران<i class="icon icon-users"></i></a></li>
                 <li><a href="<s:url value="/manage/production/new"/>">محصول جدید<i class="icon icon-plus"></i></a></li>
             </sec:authorize>
             <sec:authorize access="isAuthenticated()">

@@ -1,5 +1,8 @@
 package ir.sk.patienttalk.common.persistence.jpa;
 
+import ir.sk.patienttalk.common.persistence.PersistenceException;
+import ir.sk.patienttalk.common.persistence.SearchData;
+
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
@@ -165,4 +168,6 @@ public interface GenericDAO<T, PK extends Serializable> {
      * @return - true if it exists, false if it doesn't
      */
     boolean exists(PK id);
+
+    PagingDataList<T> search(SearchData searchData) throws PersistenceException;
 }
