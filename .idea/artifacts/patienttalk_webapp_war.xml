@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="patienttalk-webapp:war">
-    <output-path>$PROJECT_DIR$/patienttalk-webapp/target</output-path>
-    <root id="archive" name="patienttalk-webapp.war">
-      <element id="artifact" artifact-name="patienttalk-webapp:war exploded" />
-    </root>
-  </artifact>
-</component>
